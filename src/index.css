@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────
+   Custom Theme
+   ────────────────────────────────────────────── */
+@theme {
+  --color-bg: #08080D;
+  --color-card: #15151C;
+  --color-card-hover: #1C1C26;
+  --color-violet: #9367FF;
+  --color-violet-dim: #7B52E0;
+  --color-burgundy: #7B263B;
+  --color-burgundy-dim: #5E1D2E;
+  --color-text: #F5F3F7;
+  --color-text-muted: #A5A2AE;
+  --color-border: #2A2A35;
+  --color-border-light: #3A3A48;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+/* ──────────────────────────────────────────────
+   Base styles
+   ────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-violet) var(--color-bg);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+
+::selection {
+  background-color: var(--color-violet);
+  color: var(--color-text);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-violet-dim);
+  border-radius: 3px;
+}
+
+/* ──────────────────────────────────────────────
+   Focus states
+   ────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-violet);
+  outline-offset: 2px;
+}
+
+/* ──────────────────────────────────────────────
+   Reduced motion
+   ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ──────────────────────────────────────────────
+   Custom cursor (desktop only)
+   ────────────────────────────────────────────── */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-violet);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.hovering {
+  transform: scale(2.5);
+  background-color: rgba(147, 103, 255, 0.1);
+}
+
+/* ──────────────────────────────────────────────
+   Grain overlay
+   ────────────────────────────────────────────── */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ──────────────────────────────────────────────
+   Glow effects
+   ────────────────────────────────────────────── */
+.violet-glow {
+  background: radial-gradient(circle, rgba(147, 103, 255, 0.15) 0%, transparent 70%);
+}
+
+.burgundy-glow {
+  background: radial-gradient(circle, rgba(123, 38, 59, 0.15) 0%, transparent 70%);
+}
+
+/* ──────────────────────────────────────────────
+   Glass card
+   ────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(21, 21, 28, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(42, 42, 53, 0.5);
+}
+
+/* ──────────────────────────────────────────────
+   Section container
+   ────────────────────────────────────────────── */
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+}
