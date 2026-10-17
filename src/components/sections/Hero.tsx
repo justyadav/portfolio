@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { hero, siteConfig } from '../../data/portfolio';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { getAssetUrl } from '../../utils/assets';
+import defaultPortrait from '../../assets/portrait.jpg';
 
 // Custom Lucide-styled LinkedIn icon component
 function Linkedin({
@@ -184,8 +186,13 @@ export function Hero() {
                 {/* Portrait card */}
                 <div className="relative rounded-2xl overflow-hidden border border-[#2A2A35]/80 shadow-[0_25px_60px_rgba(0,0,0,0.7)] bg-[#15151C] group">
                   <img
-                    src={hero.portrait}
+                    src={hero.portrait ? getAssetUrl(hero.portrait) : defaultPortrait}
                     alt={`${siteConfig.name} - Portrait`}
+                    onError={(e) => {
+                      if (e.currentTarget.src !== defaultPortrait) {
+                        e.currentTarget.src = defaultPortrait;
+                      }
+                    }}
                     className="w-full h-auto object-cover object-center max-w-[300px] sm:max-w-[360px] lg:max-w-[390px] xl:max-w-[420px] aspect-[4/5] select-none block transition-transform duration-700 group-hover:scale-[1.02]"
                     loading="eager"
                   />

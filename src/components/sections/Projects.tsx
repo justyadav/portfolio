@@ -4,6 +4,7 @@ import { projects, projectFilters, type Project } from '../../data/portfolio';
 import { fadeInUp, staggerContainer } from '../../utils/animations';
 import { ExternalLink, ArrowUpRight } from 'lucide-react';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { getAssetUrl } from '../../utils/assets';
 
 interface ProjectCardProps {
   project: Project;
@@ -88,7 +89,7 @@ function ProjectCard({ project, reducedMotion }: ProjectCardProps) {
         ) : (
           <>
             <img
-              src={project.image}
+              src={getAssetUrl(project.image)}
               alt={`${project.title} thumbnail`}
               onError={() => setImgError(true)}
               loading="lazy"
