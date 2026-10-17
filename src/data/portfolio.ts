@@ -325,6 +325,7 @@ export const contact = {
   description:
     "Have an idea, a project, or an interesting technical challenge? Let's turn it into something real.",
   email: '', // TODO: Add your email
+  web3formsKey: '104a3afe-fcc0-42e9-a5b5-d930902292e4',
   links: {
     linkedIn: '', // TODO: Add LinkedIn URL
     github: '', // TODO: Add GitHub URL

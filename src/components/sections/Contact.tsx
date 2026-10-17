@@ -57,7 +57,8 @@ export function Contact() {
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'needs-config'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error' | 'needs-config'>('idle');
+  const [submitError, setSubmitError] = useState('');
   const [copiedPayload, setCopiedPayload] = useState(false);
 
   const validate = (): boolean => {
@@ -102,16 +103,51 @@ export function Contact() {
     e.preventDefault();
     if (!validate()) return;
 
+    const accessKey =
+      (contact as { web3formsKey?: string }).web3formsKey ||
+      (import.meta.env.VITE_WEB3FORMS_KEY as string) ||
+      '';
+
+    if (!accessKey) {
+      console.log('[AEGRA Portfolio] Contact form submitted with payload:', formData);
+      setStatus('needs-config');
+      return;
+    }
+
     setStatus('submitting');
+    setSubmitError('');
 
-    // Simulate async network request
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: `${formData.name} via Portfolio`,
+        }),
+      });
 
-    // Log the data for developer inspection
-    console.log('[AEGRA Portfolio] Contact form submitted with payload:', formData);
+      const result = await response.json();
 
-    // Per specifications: Never display a fake success message unless an active backend/API endpoint is truly connected.
-    setStatus('needs-config');
+      if (result.success) {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatus('error');
+        setSubmitError(result.message || 'Failed to deliver message. Please try again or reach out directly.');
+      }
+    } catch (err) {
+      console.error('Contact form submission error:', err);
+      setStatus('error');
+      setSubmitError('A network error occurred. Please try again or reach out directly.');
+    }
   };
 
   const handleCopyMessage = () => {
@@ -414,6 +450,78 @@ export function Contact() {
                   </>
                 )}
               </button>
+
+              {/* Success Notification */}
+              {status === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-5 rounded-xl bg-[#15231F] border border-[#10B981]/40 space-y-3"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-[#10B981]/20 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-5 h-5 text-[#34D399]" />
+                    </div>
+                    <div className="text-xs text-[#A5A2AE] space-y-1">
+                      <p className="font-semibold text-sm text-[#F5F3F7]">
+                        Message Sent Successfully!
+                      </p>
+                      <p className="leading-relaxed">
+                        Thank you for reaching out. Your message has been delivered directly to Manish's inbox. He'll get back to you shortly.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-end pt-2 border-t border-[#10B981]/20">
+                    <button
+                      type="button"
+                      onClick={() => setStatus('idle')}
+                      className="px-3 py-1.5 rounded-xl bg-[#08080D] border border-[#2A2A35] text-xs text-[#F5F3F7] hover:border-[#9367FF] transition-colors cursor-pointer"
+                    >
+                      Send another message
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Error Notification */}
+              {status === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 rounded-xl bg-[#231518] border border-[#7B263B]/60 space-y-3"
+                >
+                  <div className="flex items-start gap-3">
+                    <AlertCircle className="w-5 h-5 text-[#E05275] shrink-0 mt-0.5" />
+                    <div className="text-xs text-[#A5A2AE] space-y-1">
+                      <p className="font-semibold text-[#F5F3F7]">
+                        Delivery Failed
+                      </p>
+                      <p className="text-[#E05275]">
+                        {submitError || 'Could not deliver message right now. Please try again or reach out directly.'}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-end gap-2 pt-2 border-t border-[#7B263B]/30">
+                    <button
+                      type="button"
+                      onClick={handleCopyMessage}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#08080D] border border-[#2A2A35] text-xs font-mono text-[#F5F3F7] hover:border-[#9367FF] transition-colors"
+                    >
+                      {copiedPayload ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-[#34D399]" />
+                          <span>Copied to clipboard</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5" />
+                          <span>Copy draft</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </motion.div>
+              )}
 
               {/* Notice state if API endpoint needs configuration */}
               {status === 'needs-config' && (
