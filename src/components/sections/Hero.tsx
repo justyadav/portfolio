@@ -69,28 +69,28 @@ export function Hero() {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] violet-glow rounded-full opacity-35 blur-[140px] pointer-events-none -z-10" />
       <div className="absolute bottom-1/3 right-10 w-[450px] h-[450px] burgundy-glow rounded-full opacity-20 blur-[120px] pointer-events-none -z-10" />
 
-      {/* Cinematic Centered Background Portrait */}
+      {/* Cinematic Centered Background Portrait (Reference Inspired) */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none -z-10 overflow-hidden select-none">
-        <div className="relative w-full max-w-6xl h-full flex items-center justify-center">
+        <div className="relative w-full max-w-5xl h-full flex items-center justify-center">
           <img
             src={hero.portrait ? getAssetUrl(hero.portrait) : defaultPortrait}
             alt=""
             aria-hidden="true"
-            className="w-full h-full max-h-[900px] object-cover sm:object-contain object-center opacity-30 sm:opacity-45 filter contrast-110 brightness-95"
+            className="w-full h-full max-h-[920px] object-cover sm:object-contain object-center opacity-65 md:opacity-80 filter contrast-110 brightness-95"
           />
-          {/* Seamless multi-directional gradient vignette into #08080D */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#08080D] via-[#08080D]/30 to-[#08080D]" />
+          {/* Subtle multi-directional gradient vignette blending portrait into #08080D canvas */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#08080D] via-[#08080D]/40 to-[#08080D]/90" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#08080D] via-transparent to-[#08080D]" />
-          <div className="absolute inset-0 bg-[#08080D]/20" />
+          <div className="absolute inset-0 bg-radial-gradient from-transparent via-[#08080D]/30 to-[#08080D]" />
         </div>
       </div>
 
       {/* Main Content Container */}
-      <div className="section-container w-full flex-1 flex items-center py-8 sm:py-12">
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 xl:gap-16 items-center">
+      <div className="section-container w-full flex-1 flex items-center py-8 sm:py-12 z-20">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
           
           {/* ================= LEFT COLUMN: INTRO & HEADLINES ================= */}
-          <div className="lg:col-span-7 flex flex-col justify-center text-left z-20">
+          <div className="lg:col-span-7 flex flex-col justify-center text-left">
             {/* Small uppercase intro badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -98,7 +98,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="mb-6 sm:mb-8"
             >
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#15151C]/90 border border-[#2A2A35] shadow-sm">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#15151C]/90 border border-[#2A2A35] shadow-sm backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-[#9367FF] animate-pulse" />
                 <span className="text-xs font-semibold tracking-wide text-[#9367FF]">
                   {hero.topline}
@@ -116,23 +116,20 @@ export function Hero() {
               <p className="font-serif italic text-2xl sm:text-3xl lg:text-4xl text-[#A5A2AE] font-normal mb-3 sm:mb-4 tracking-normal">
                 {hero.greeting}
               </p>
-              <h1 className="font-sans font-extrabold text-4xl sm:text-6xl text-[#F5F3F7] tracking-tight leading-[1.12] drop-shadow-[0_0_35px_rgba(147,103,255,0.22)]">
+              <h1 className="font-sans font-extrabold text-4xl sm:text-6xl lg:text-7xl text-[#F5F3F7] tracking-tight leading-[1.1] drop-shadow-[0_0_35px_rgba(147,103,255,0.25)]">
                 {hero.name}
               </h1>
             </motion.div>
 
-            {/* Headline */}
+            {/* Headline — Developer, Builder, Entrepreneur (CTO × CMO removed) */}
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="space-y-3 mb-8 sm:mb-10"
+              className="mb-8 sm:mb-10"
             >
-              <p className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#9367FF] via-[#B894FF] to-[#7B263B] bg-clip-text text-transparent tracking-wide">
+              <p className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-[#9367FF] via-[#B894FF] to-[#EAB308] bg-clip-text text-transparent tracking-wide">
                 {hero.headline[0]}
-              </p>
-              <p className="text-lg sm:text-xl text-[#F5F3F7]/90 font-medium tracking-wide">
-                {hero.headline[1]}
               </p>
             </motion.div>
 
@@ -173,56 +170,42 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* ================= RIGHT COLUMN: PORTRAIT & EDITORIAL ACCENT ================= */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
+          {/* ================= RIGHT COLUMN: EDITORIAL GRAPHIC ACCENTS (REFERENCE INSPIRED) ================= */}
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-end justify-center relative">
             <motion.div
               initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="relative w-full flex flex-col items-center justify-center"
+              className="relative flex flex-col items-center lg:items-end gap-6"
             >
-              {/* Floating portrait card */}
-              <motion.div
-                animate={prefersReduced ? {} : { y: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
-                className="relative"
-              >
-                {/* Soft violet radial glow behind portrait */}
-                <div
-                  className="absolute -inset-8 sm:-inset-12 violet-glow rounded-2xl opacity-75 blur-3xl pointer-events-none -z-10"
-                  aria-hidden="true"
-                />
+              {/* Editorial Graphic Cluster (from reference image) */}
+              <div className="flex items-center gap-4 bg-[#15151C]/60 backdrop-blur-md p-5 rounded-2xl border border-[#2A2A35]/60 shadow-2xl">
+                {/* Small white dot */}
+                <div className="w-4 h-4 rounded-full bg-white/90 shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
+                {/* White circular ring */}
+                <div className="w-12 h-12 rounded-full border-4 border-white/90 flex items-center justify-center" />
+                {/* Gold / Amber accent sphere */}
+                <div className="w-16 h-16 rounded-full bg-[#EAB308] shadow-[0_0_30px_rgba(234,179,8,0.45)]" />
+              </div>
 
-                {/* Secondary subtle burgundy glow */}
-                <div
-                  className="absolute -inset-4 sm:-inset-8 burgundy-glow rounded-2xl opacity-40 blur-2xl pointer-events-none -z-10"
-                  aria-hidden="true"
-                />
+              {/* Tagline label */}
+              <div className="text-sm font-mono tracking-[0.25em] text-[#EAB308] uppercase font-semibold text-center lg:text-right">
+                strategy • code • systems
+              </div>
 
-                {/* Portrait card */}
-                <div className="relative rounded-2xl overflow-hidden border border-[#2A2A35]/80 shadow-[0_25px_60px_rgba(0,0,0,0.7)] bg-[#15151C] group">
-                  <img
-                    src={hero.portrait ? getAssetUrl(hero.portrait) : defaultPortrait}
-                    alt={`${siteConfig.name} - Portrait`}
-                    onError={(e) => {
-                      if (e.currentTarget.src !== defaultPortrait) {
-                        e.currentTarget.src = defaultPortrait;
-                      }
-                    }}
-                    className="w-full h-auto object-cover object-center max-w-[300px] sm:max-w-[360px] lg:max-w-[390px] xl:max-w-[420px] aspect-[4/5] select-none block transition-transform duration-700 group-hover:scale-[1.02]"
-                    loading="eager"
-                  />
-                  {/* Subtle inner gradient shadow */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#08080D]/60 via-transparent to-transparent pointer-events-none" />
+              {/* Delicate vertical pin line with glowing node (from reference image) */}
+              <div className="hidden lg:flex flex-col items-center my-4 mr-10">
+                <div className="w-[1px] h-24 bg-gradient-to-b from-transparent via-[#A5A2AE]/40 to-transparent relative">
+                  <div className="w-2.5 h-2.5 rounded-full bg-white absolute top-1/2 -left-[4px] shadow-[0_0_10px_white]" />
                 </div>
-              </motion.div>
+              </div>
 
-              {/* Rotating descriptor badge below portrait */}
+              {/* Rotating descriptor badge */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.7 }}
-                className="mt-8 px-5 py-2.5 rounded-full bg-[#15151C]/90 border border-[#2A2A35] shadow-lg flex items-center gap-3 backdrop-blur-md"
+                className="px-5 py-2.5 rounded-full bg-[#15151C]/90 border border-[#2A2A35] shadow-lg flex items-center gap-3 backdrop-blur-md"
               >
                 <span className="w-2 h-2 rounded-full bg-[#9367FF]" />
                 <span className="text-xs uppercase tracking-[0.2em] text-[#9367FF] font-semibold">
@@ -249,30 +232,23 @@ export function Hero() {
         </div>
       </div>
 
-      {/* ================= BOTTOM BAR ================= */}
-      <div className="section-container w-full relative z-20 flex items-center justify-between pt-8 border-t border-[#2A2A35]/40">
-        {/* Bottom-left: LinkedIn Icon */}
-        <div className="flex items-center">
-          {hero.linkedIn && hero.linkedIn.trim() !== '' ? (
-            <motion.a
+      {/* ================= BOTTOM BAR (EDITORIAL FOOTER) ================= */}
+      <div className="section-container w-full relative z-20 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-[#2A2A35]/50">
+        {/* Bottom-left: Reference-style editorial copyright tagline */}
+        <div className="flex items-center gap-3 text-xs font-mono text-[#A5A2AE]/80 tracking-wide text-center sm:text-left">
+          <span>
+            <strong className="font-semibold text-[#F5F3F7]">{siteConfig.name.toLowerCase()}</strong> {new Date().getFullYear()} — created with passion, engineering & vision.
+          </span>
+          {hero.linkedIn && hero.linkedIn.trim() !== '' && (
+            <a
               href={hero.linkedIn}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn profile"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="group flex items-center gap-3 text-[#A5A2AE] hover:text-[#9367FF] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9367FF] rounded-full"
+              className="p-1.5 rounded-full bg-[#15151C] border border-[#2A2A35] hover:border-[#9367FF] text-[#A5A2AE] hover:text-[#9367FF] transition-colors inline-flex items-center"
             >
-              <div className="p-2.5 rounded-full bg-[#15151C]/80 border border-[#2A2A35] group-hover:border-[#9367FF]/50 group-hover:shadow-[0_0_15px_rgba(147,103,255,0.25)] transition-all">
-                <Linkedin className="w-4 h-4 text-current" />
-              </div>
-              <span className="text-xs font-medium tracking-wider uppercase hidden sm:inline-block">
-                LinkedIn
-              </span>
-            </motion.a>
-          ) : (
-            <div />
+              <Linkedin className="w-3.5 h-3.5" />
+            </a>
           )}
         </div>
 

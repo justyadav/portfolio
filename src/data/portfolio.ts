@@ -5,12 +5,12 @@
 export const siteConfig = {
   name: 'Manish Yadav',
   monogram: 'MY',
-  title: 'CTO × CMO | Developer | Tech Entrepreneur',
+  title: 'Developer | Builder | Tech Entrepreneur',
   company: 'ArixByte Ltd',
   siteUrl: 'https://manishyadav.dev', // TODO: Update with actual domain
   ogImage: '/images/og-image.jpg',
   description:
-    'Manish Yadav — CTO × CMO at ArixByte. Developer, builder, and tech entrepreneur crafting digital products, infrastructure, and brands.',
+    'Manish Yadav — Developer, builder, and tech entrepreneur crafting digital products, infrastructure, and brands.',
 };
 
 export const navigation = [
@@ -25,20 +25,20 @@ export const hero = {
   topline: 'Building Digital Experiences',
   greeting: "Hey, I'm",
   name: 'MANISH YADAV',
-  headline: ['CTO × CMO', 'Developer. Builder. Entrepreneur.'],
+  headline: ['Developer · Builder · Tech Entrepreneur'],
   description:
     'I turn ideas into digital products — from scalable infrastructure and automation to web applications, Discord ecosystems, and emerging mobile experiences.',
   cta: {
     primary: { label: 'Explore My Work', href: '#projects' },
     secondary: { label: "Let's Connect", href: '#contact' },
   },
-  sideText: ['TECHNOLOGY', 'MEETS', 'CREATIVITY'],
+  sideText: ['STRATEGY', 'CODE', 'SYSTEMS'],
   rotatingDescriptors: [
     'Founder Mindset',
     'Engineering Precision',
     'Creative Vision',
   ],
-  portrait: '/images/portrait.jpg',
+  portrait: '/images/portrait.png',
   availability: 'Available for projects', // Edit or set to '' to hide
   linkedIn: '', // TODO: Add your LinkedIn URL
 };
