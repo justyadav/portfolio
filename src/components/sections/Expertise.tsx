@@ -2,9 +2,9 @@ import type React from 'react';
 import { motion } from 'framer-motion';
 import { expertise } from '../../data/portfolio';
 import { fadeInUp, staggerContainer } from '../../utils/animations';
-import { Code2, Server, Bot, Lightbulb } from 'lucide-react';
+import { Code2, Server, Database, Zap } from 'lucide-react';
 
-const iconMap: Record<string, React.ElementType> = { Code2, Server, Bot, Lightbulb };
+const iconMap: Record<string, React.ElementType> = { Code2, Server, Database, Zap };
 
 export function Expertise() {
   const headingLines = expertise.heading.split('\n');
@@ -75,23 +75,31 @@ export function Expertise() {
 
                 <div className="relative z-10">
                   {/* Icon at top */}
-                  <div className="w-13 h-13 rounded-xl bg-[#9367FF]/10 border border-[#9367FF]/20 flex items-center justify-center text-[#9367FF] mb-7 group-hover:bg-[#9367FF]/20 group-hover:border-[#9367FF]/40 group-hover:scale-105 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-[#9367FF]/10 border border-[#9367FF]/20 flex items-center justify-center text-[#9367FF] mb-5 group-hover:bg-[#9367FF]/20 group-hover:border-[#9367FF]/40 group-hover:scale-105 transition-all duration-300">
                     <Icon className="w-6 h-6" aria-hidden="true" />
                   </div>
 
                   {/* Category title */}
-                  <h3 className="text-xl sm:text-2xl font-semibold text-[#F5F3F7] mb-5 tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-[#F5F3F7] mb-2.5 tracking-tight">
                     {category.title}
                   </h3>
+
+                  {/* Context note / subtext */}
+                  {'subtext' in category && category.subtext && (
+                    <p className="text-xs sm:text-sm text-[#A5A2AE] leading-relaxed mb-6 font-normal">
+                      {category.subtext}
+                    </p>
+                  )}
                 </div>
 
-                {/* List of skills as individual tags/chips */}
-                <div className="relative z-10 flex flex-wrap gap-2.5 pt-5 mt-6 border-t border-[#2A2A35]/60">
+                {/* List of skills as individual tags/chips with subtle indicator */}
+                <div className="relative z-10 flex flex-wrap gap-2 pt-4 mt-auto border-t border-[#2A2A35]/60">
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="inline-flex items-center px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#1C1C26] text-[#A5A2AE] border border-[#2A2A35]/80 group-hover:border-[#9367FF]/30 hover:!border-[#9367FF] hover:!text-[#F5F3F7] transition-all duration-200"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-[#1C1C26] text-[#A5A2AE] border border-[#2A2A35]/80 group-hover:border-[#9367FF]/30 hover:!border-[#9367FF] hover:!text-[#F5F3F7] transition-all duration-200"
                     >
+                      <span className="w-1 h-1 rounded-full bg-[#9367FF]/80" aria-hidden="true" />
                       {skill}
                     </span>
                   ))}

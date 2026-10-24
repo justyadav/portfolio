@@ -69,6 +69,22 @@ export function Hero() {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] violet-glow rounded-full opacity-35 blur-[140px] pointer-events-none -z-10" />
       <div className="absolute bottom-1/3 right-10 w-[450px] h-[450px] burgundy-glow rounded-full opacity-20 blur-[120px] pointer-events-none -z-10" />
 
+      {/* Cinematic Centered Background Portrait */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none -z-10 overflow-hidden select-none">
+        <div className="relative w-full max-w-6xl h-full flex items-center justify-center">
+          <img
+            src={hero.portrait ? getAssetUrl(hero.portrait) : defaultPortrait}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full max-h-[900px] object-cover sm:object-contain object-center opacity-30 sm:opacity-45 filter contrast-110 brightness-95"
+          />
+          {/* Seamless multi-directional gradient vignette into #08080D */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#08080D] via-[#08080D]/30 to-[#08080D]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#08080D] via-transparent to-[#08080D]" />
+          <div className="absolute inset-0 bg-[#08080D]/20" />
+        </div>
+      </div>
+
       {/* Main Content Container */}
       <div className="section-container w-full flex-1 flex items-center py-8 sm:py-12">
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 xl:gap-16 items-center">
