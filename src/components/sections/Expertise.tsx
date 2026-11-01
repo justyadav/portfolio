@@ -1,114 +1,102 @@
-import type React from 'react';
 import { motion } from 'framer-motion';
 import { expertise } from '../../data/portfolio';
-import { fadeInUp, staggerContainer } from '../../utils/animations';
-import { Code2, Server, Database, Zap } from 'lucide-react';
-
-const iconMap: Record<string, React.ElementType> = { Code2, Server, Database, Zap };
 
 export function Expertise() {
-  const headingLines = expertise.heading.split('\n');
-
   return (
-    <section
-      id="expertise"
-      aria-labelledby="expertise-heading"
-      className="relative py-28 sm:py-36 section-container overflow-hidden"
-    >
-      {/* Decorative ambient gradients */}
-      <div
-        className="absolute -left-20 top-1/4 w-80 h-80 rounded-full bg-[#9367FF]/5 blur-3xl pointer-events-none -z-10"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute -right-20 bottom-1/4 w-80 h-80 rounded-full bg-[#7B263B]/5 blur-3xl pointer-events-none -z-10"
-        aria-hidden="true"
-      />
+    <section id="expertise" className="py-24 sm:py-36 relative bg-[#030303] overflow-hidden">
+      <div className="section-container">
+        {/* Chapter Header */}
+        <div className="chapter-header">
+          <span className="chapter-number">{expertise.chapterNumber} / {expertise.chapterLabel}</span>
+          <span className="chapter-subtitle">{expertise.chapterSubtitle}</span>
+        </div>
 
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-        variants={staggerContainer}
-      >
-        {/* Header: Section label + Heading in serif */}
-        <motion.div variants={fadeInUp} className="mb-16 sm:mb-20">
-          <div className="flex items-center gap-3 mb-5">
-            <span className="w-8 h-[1px] bg-[#9367FF]" aria-hidden="true" />
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#9367FF]">
-              {expertise.sectionLabel}
-            </span>
-          </div>
-
-          <h2
-            id="expertise-heading"
-            className="font-serif text-3xl sm:text-4xl lg:text-6xl font-bold leading-[1.25] text-[#F5F3F7] tracking-tight space-y-2"
-          >
-            {headingLines.map((line, idx) => (
-              <span key={idx} className="block">
-                {line}
-              </span>
-            ))}
-          </h2>
-        </motion.div>
-
-        {/* 4-column grid on desktop, 2 on tablet, 1 on mobile */}
+        {/* Display Heading */}
         <motion.div
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-16 sm:mb-20"
         >
-          {expertise.categories.map((category) => {
-            const Icon = iconMap[category.icon] || Code2;
-
-            return (
-              <motion.div
-                key={category.title}
-                variants={fadeInUp}
-                whileHover={{ y: -3, transition: { duration: 0.2, ease: 'easeOut' } }}
-                className="group relative flex flex-col justify-between rounded-2xl bg-[#15151C] border border-[#2A2A35] p-7 sm:p-8 hover:border-[#9367FF] transition-colors duration-300 shadow-xl hover:shadow-[0_15px_30px_-5px_rgba(147,103,255,0.15)]"
-              >
-                {/* Subtle card glow overlay on hover */}
-                <div
-                  className="absolute inset-0 rounded-2xl bg-gradient-to-b from-[#9367FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  aria-hidden="true"
-                />
-
-                <div className="relative z-10">
-                  {/* Icon at top */}
-                  <div className="w-12 h-12 rounded-xl bg-[#9367FF]/10 border border-[#9367FF]/20 flex items-center justify-center text-[#9367FF] mb-5 group-hover:bg-[#9367FF]/20 group-hover:border-[#9367FF]/40 group-hover:scale-105 transition-all duration-300">
-                    <Icon className="w-6 h-6" aria-hidden="true" />
-                  </div>
-
-                  {/* Category title */}
-                  <h3 className="text-xl sm:text-2xl font-semibold text-[#F5F3F7] mb-2.5 tracking-tight">
-                    {category.title}
-                  </h3>
-
-                  {/* Context note / subtext */}
-                  {'subtext' in category && category.subtext && (
-                    <p className="text-xs sm:text-sm text-[#A5A2AE] leading-relaxed mb-6 font-normal">
-                      {category.subtext}
-                    </p>
-                  )}
-                </div>
-
-                {/* List of skills as individual tags/chips with subtle indicator */}
-                <div className="relative z-10 flex flex-wrap gap-2 pt-4 mt-auto border-t border-[#2A2A35]/60">
-                  {category.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-[#1C1C26] text-[#A5A2AE] border border-[#2A2A35]/80 group-hover:border-[#9367FF]/30 hover:!border-[#9367FF] hover:!text-[#F5F3F7] transition-all duration-200"
-                    >
-                      <span className="w-1 h-1 rounded-full bg-[#9367FF]/80" aria-hidden="true" />
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
+          <h2 className="font-display italic text-3xl sm:text-5xl lg:text-6xl text-[#f1eee8] leading-[1.15] max-w-3xl">
+            {expertise.displayHeadline}
+          </h2>
+          <p className="mt-4 text-sm sm:text-base text-[#aaa9a4] max-w-xl">
+            Disciplined software engineering paired with hands-on infrastructure operations. Built for performance, uptime, and maintainability.
+          </p>
         </motion.div>
-      </motion.div>
+
+        {/* 4-Tier Categorized Card Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 sm:mb-28">
+          {expertise.tiers.map((tier, idx) => (
+            <motion.div
+              key={tier.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="editorial-card p-6 sm:p-7 flex flex-col justify-between"
+            >
+              <div>
+                <span className="font-mono text-[10px] tracking-widest text-[#ff8c59] uppercase block mb-3">
+                  TIER 0{idx + 1}
+                </span>
+                <h3 className="font-sans font-semibold text-lg sm:text-xl text-[#f1eee8] mb-3">
+                  {tier.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#aaa9a4] leading-relaxed mb-6 font-normal">
+                  {tier.context}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-2 pt-4 border-t border-white/[0.08]">
+                {tier.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-[#161616] border border-white/[0.08] text-[#f1eee8]"
+                  >
+                    <span className="w-1 h-1 rounded-full bg-[#ff8c59]" />
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* 3-Step Execution Philosophy (Sarthak style: 01, 02, 03) */}
+        <div className="pt-12 border-t border-white/[0.08]">
+          <span className="block font-mono text-xs uppercase tracking-widest text-[#8c8c8c] mb-8">
+            THE EXECUTION PHILOSOPHY
+          </span>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+            {expertise.processSteps.map((step, idx) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.15 }}
+                className="flex flex-col"
+              >
+                <div className="flex items-baseline gap-3 mb-4">
+                  <span className="font-display italic text-3xl sm:text-4xl text-[#ff8c59]">
+                    {step.number}
+                  </span>
+                  <h4 className="font-sans font-semibold text-base sm:text-lg text-[#f1eee8]">
+                    {step.title}
+                  </h4>
+                </div>
+                <p className="text-xs sm:text-sm text-[#aaa9a4] leading-relaxed">
+                  {step.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

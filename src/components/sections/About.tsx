@@ -1,130 +1,104 @@
 import { motion } from 'framer-motion';
 import { about } from '../../data/portfolio';
-import { fadeInUp, staggerContainer } from '../../utils/animations';
+import { getAssetUrl } from '../../utils/assets';
+import defaultPortrait from '../../assets/portrait.png';
 
 export function About() {
-  const headingLines = about.heading.split('\n');
-
   return (
-    <section
-      id="about"
-      aria-labelledby="about-heading"
-      className="relative py-28 sm:py-36 section-container overflow-hidden"
-    >
-      {/* Decorative ambient gradients */}
-      <div
-        className="absolute -right-24 top-1/4 w-96 h-96 rounded-full bg-[#9367FF]/5 blur-3xl pointer-events-none -z-10"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute -left-24 bottom-1/3 w-80 h-80 rounded-full bg-[#7B263B]/5 blur-3xl pointer-events-none -z-10"
-        aria-hidden="true"
-      />
+    <section id="about" className="py-24 sm:py-36 relative bg-[#030303] overflow-hidden">
+      <div className="section-container">
+        {/* Chapter Header (Sarthak style) */}
+        <div className="chapter-header">
+          <span className="chapter-number">{about.chapterNumber} / {about.chapterLabel}</span>
+          <span className="chapter-subtitle">{about.chapterSubtitle}</span>
+        </div>
 
-      {/* Subtle abstract geometric accent */}
-      <div
-        className="hidden xl:block absolute right-6 top-16 w-28 h-28 border border-[#9367FF]/15 rounded-2xl rotate-12 pointer-events-none -z-10"
-        aria-hidden="true"
-      >
-        <div className="absolute inset-2 border border-[#9367FF]/10 rounded-xl -rotate-6" />
-      </div>
+        {/* Section Display Heading in Instrument Serif */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="font-display italic text-3xl sm:text-5xl lg:text-6xl text-[#f1eee8] leading-[1.15] max-w-4xl mb-16 sm:mb-24"
+        >
+          {about.displayHeadline}
+        </motion.h2>
 
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-        variants={staggerContainer}
-      >
-        {/* Header: Section label + Large editorial serif heading */}
-        <motion.div variants={fadeInUp} className="max-w-4xl mb-14 sm:mb-20">
-          <div className="flex items-center gap-3 mb-5">
-            <span className="w-8 h-[1px] bg-[#9367FF]" aria-hidden="true" />
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#9367FF]">
-              {about.sectionLabel}
-            </span>
-          </div>
-
-          <h2
-            id="about-heading"
-            className="font-serif text-3xl sm:text-4xl lg:text-6xl font-bold leading-[1.25] text-[#F5F3F7] tracking-tight space-y-2"
+        {/* 2-Column Editorial Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left Column: Portrait Card & Identity Notes */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-5 flex flex-col gap-4"
           >
-            {headingLines.map((line, idx) => (
-              <span key={idx} className="block">
-                {line.includes('&') ? (
-                  <>
-                    {line.split('&')[0]}
-                    <span className="text-[#9367FF] font-serif">&</span>
-                    {line.split('&')[1]}
-                  </>
-                ) : (
-                  line
-                )}
-              </span>
-            ))}
-          </h2>
-        </motion.div>
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0b0b0b] group shadow-2xl">
+              <img
+                src={getAssetUrl('/images/portrait.png')}
+                onError={(e) => {
+                  if (e.currentTarget.src !== defaultPortrait) {
+                    e.currentTarget.src = defaultPortrait;
+                  }
+                }}
+                alt="Manish Yadav"
+                className="w-full h-auto object-cover object-center aspect-[4/5] filter contrast-105 brightness-95 group-hover:scale-102 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0b] via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-5 left-5 right-5 font-mono text-[11px] text-[#aaa9a4] tracking-wider uppercase">
+                {about.identityNotes}
+              </div>
+            </div>
 
-        {/* Asymmetrical 2-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start">
-          {/* Left Column (~60%): Biography */}
-          <motion.div variants={fadeInUp} className="lg:col-span-7 space-y-7 sm:space-y-8">
-            {about.bio.map((paragraph, index) => (
-              <p
-                key={index}
-                className="text-lg sm:text-xl leading-[1.85] text-[#A5A2AE] font-normal"
-              >
-                {paragraph}
-              </p>
-            ))}
+            <div className="flex items-center justify-between text-xs font-mono text-[#8c8c8c] px-1">
+              <span>FOUNDER · DEVELOPER</span>
+              <span className="text-[#ff8c59]">ARIXBYTE LTD</span>
+            </div>
           </motion.div>
 
-          {/* Right Column (~40%): Capabilities */}
-          <motion.div variants={fadeInUp} className="lg:col-span-5">
-            <div className="relative rounded-2xl bg-[#15151C] border border-[#2A2A35] p-7 sm:p-9 overflow-hidden shadow-xl">
-              {/* Subtle top violet accent gradient line */}
-              <div
-                className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#9367FF] to-transparent"
-                aria-hidden="true"
-              />
+          {/* Right Column: Narrative, Pull Quote & Core Disciplines */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-7 flex flex-col justify-between"
+          >
+            {/* Story Paragraphs */}
+            <div className="space-y-6 text-base sm:text-lg text-[#aaa9a4] leading-[1.8] font-normal mb-10 sm:mb-12">
+              {about.bio.map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
+              ))}
+            </div>
 
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-[#9367FF] mb-8 flex items-center gap-2">
-                <span>Core Capabilities &amp; Focus</span>
-              </h3>
+            {/* Editorial Pull Quote in Serif */}
+            <blockquote className="p-6 sm:p-8 rounded-2xl bg-[#0b0b0b] border-l-2 border-[#ff8c59] border-y border-r border-white/[0.06] mb-10 sm:mb-12 shadow-lg">
+              <p className="font-display italic text-xl sm:text-2xl lg:text-3xl text-[#f1eee8] leading-snug">
+                {about.pullQuote}
+              </p>
+            </blockquote>
 
-              <ul className="space-y-5">
-                {about.capabilities.map((capability, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-4 group"
+            {/* Core Disciplines List */}
+            <div>
+              <span className="block font-mono text-xs uppercase tracking-widest text-[#8c8c8c] mb-4">
+                CORE DISCIPLINES & FOCUS
+              </span>
+              <div className="flex flex-wrap gap-2.5">
+                {about.disciplines.map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-mono text-[#f1eee8] bg-[#141414] border border-white/10 hover:border-[#ff8c59]/50 transition-colors"
                   >
-                    <div
-                      className="mt-2.5 flex h-2 w-2 shrink-0 items-center justify-center"
-                      aria-hidden="true"
-                    >
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#9367FF] shadow-[0_0_8px_rgba(147,103,255,0.7)] group-hover:scale-125 transition-transform duration-200" />
-                    </div>
-                    <span className="text-base sm:text-lg text-[#F5F3F7]/90 font-medium leading-relaxed group-hover:text-[#F5F3F7] transition-colors duration-200">
-                      {capability}
-                    </span>
-                  </li>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#ff8c59] mr-2" />
+                    {item}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
           </motion.div>
         </div>
-
-        {/* Full-width highlight quote */}
-        <motion.div
-          variants={fadeInUp}
-          className="mt-20 sm:mt-28 pt-14 sm:pt-18 border-t border-[#2A2A35]/80"
-        >
-          <div className="relative pl-8 sm:pl-10 border-l-2 border-[#9367FF]">
-            <blockquote className="font-serif italic text-2xl sm:text-3xl lg:text-4xl text-[#F5F3F7] leading-relaxed">
-              &ldquo;{about.highlight}&rdquo;
-            </blockquote>
-          </div>
-        </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }

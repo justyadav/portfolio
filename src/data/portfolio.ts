@@ -1,119 +1,84 @@
 // ============================================================
-// PORTFOLIO DATA — Edit this file to update all content
+// PORTFOLIO DATA — Sarthak Sharma-inspired Luxury Editorial Structure
 // ============================================================
 
 export const siteConfig = {
   name: 'Manish Yadav',
-  monogram: 'MY',
-  title: 'Developer | Builder | Tech Entrepreneur',
-  company: 'ArixByte Ltd',
-  siteUrl: 'https://manishyadav.dev', // TODO: Update with actual domain
+  brandSymbol: 'MY.',
+  title: 'Product Builder & Tech Entrepreneur',
+  role: 'Developer · Builder · Tech Entrepreneur',
+  siteUrl: 'https://justyadav.github.io/portfolio/',
   ogImage: '/images/og-image.jpg',
   description:
-    'Manish Yadav — Developer, builder, and tech entrepreneur crafting digital products, infrastructure, and brands.',
+    'Manish Yadav — Product builder, developer, and tech entrepreneur crafting hosting infrastructure, Discord bot ecosystems, and scalable web experiences.',
+  availability: 'Available for select projects',
 };
 
 export const navigation = [
-  { label: 'About', href: '#about' },
-  { label: 'Expertise', href: '#expertise' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: '#about', index: '01' },
+  { label: 'Work', href: '#work', index: '02' },
+  { label: 'Expertise', href: '#expertise', index: '03' },
+  { label: 'Impact', href: '#impact', index: '04' },
+  { label: 'Journey', href: '#journey', index: '05' },
+  { label: 'Contact', href: '#contact', index: '06' },
 ];
 
 export const hero = {
-  topline: 'Building Digital Experiences',
-  greeting: "Hey, I'm",
-  name: 'MANISH YADAV',
-  headline: ['Developer · Builder · Tech Entrepreneur'],
-  description:
-    'I turn ideas into digital products — from scalable infrastructure and automation to web applications, Discord ecosystems, and emerging mobile experiences.',
-  cta: {
-    primary: { label: 'Explore My Work', href: '#projects' },
-    secondary: { label: "Let's Connect", href: '#contact' },
-  },
-  sideText: ['STRATEGY', 'CODE', 'SYSTEMS'],
-  rotatingDescriptors: [
-    'Founder Mindset',
-    'Engineering Precision',
-    'Creative Vision',
-  ],
+  topline: 'ENGINEER · BUILDER · ENTREPRENEUR',
+  kicker: 'BASED IN INDIA · BUILDING AT SCALE',
+  displayHeadline: 'A HUMAN PERSPECTIVE ON TECHNOLOGY.',
+  leadText:
+    'I turn ideas into digital products — from scalable hosting infrastructure and automation to web applications, Discord ecosystems, and emerging mobile experiences.',
   portrait: '/images/portrait.png',
-  availability: 'Available for projects', // Edit or set to '' to hide
-  linkedIn: '', // TODO: Add your LinkedIn URL
+  ctaPrimary: { label: 'Explore Selected Work', href: '#work' },
+  ctaSecondary: { label: "Let's Connect", href: '#contact' },
+  availability: 'Available for select projects',
+  coordinates: '28.6139° N, 77.2090° E',
 };
+
+export const proofStrip = [
+  {
+    metric: '5+',
+    suffix: 'Years',
+    label: 'Building & shipping digital products',
+  },
+  {
+    metric: '100+',
+    suffix: 'Nodes',
+    label: 'Servers & cloud environments managed',
+  },
+  {
+    metric: '50K+',
+    suffix: 'Users',
+    label: 'Impacted across bots & web applications',
+  },
+  {
+    metric: '99.9%',
+    suffix: 'Uptime',
+    label: 'Infrastructure stability & SLA delivered',
+  },
+];
 
 export const about = {
-  sectionLabel: 'A LITTLE ABOUT ME',
-  heading: 'Building at the\nintersection of\ntechnology & vision',
+  chapterNumber: '01',
+  chapterLabel: 'THE PERSON BEHIND THE WORK',
+  chapterSubtitle: 'A CONNECTED PERSPECTIVE',
+  displayHeadline: 'Technology is the starting point. Systems are the backbone.',
   bio: [
-    "I'm Manish Yadav — CTO and CMO at ArixByte, where I lead both the technical architecture and the brand direction of a growing technology platform. My work spans across software development, infrastructure engineering, product building, branding, and business strategy.",
-    'From Discord bot ecosystems and hosting infrastructure to full-stack web applications and Android development, I operate across the full spectrum of modern digital product creation. I believe in building systems that are robust, experiences that are thoughtful, and brands that leave a lasting impression.',
+    "I'm Manish Yadav — a developer, infrastructure engineer, and technology builder. I lead technical architecture and product execution at ArixByte, bridging the gap between scalable server backends and intuitive user-facing platforms.",
+    'My work spans high-performance hosting clusters, Linux server orchestration, Docker virtualization, full-stack web applications, and Discord bot ecosystems. I believe engineering is at its best when complex systems disappear into effortless, reliable experiences.',
   ],
-  highlight:
-    "I don't just build software. I build the systems, experiences, and brands behind it.",
-  capabilities: [
-    'CTO × CMO at ArixByte',
-    'Discord bot development & automation',
-    'Hosting infrastructure & server management',
-    'Full-stack web development',
-    'Android application development',
-    'Product strategy & digital branding',
+  pullQuote:
+    '“I don\'t just write code. I engineer the systems, experiences, and infrastructure behind it.”',
+  disciplines: [
+    'Cloud & Hosting Infrastructure',
+    'Discord Automation & Bot Ecosystems',
+    'Full-Stack Web Applications',
+    'Linux System Administration & Docker',
+    'Android Engineering (AEGRA)',
+    'Technical Strategy & Architecture',
   ],
-};
-
-export const expertise = {
-  sectionLabel: 'EXPERTISE & SKILLS',
-  heading: 'Technical\nCapabilities',
-  categories: [
-    {
-      title: 'Languages',
-      icon: 'Code2',
-      subtext: 'Crafting high-concurrency bot systems, scalable APIs, and interactive full-stack web applications.',
-      skills: [
-        'Python',
-        'JavaScript',
-        'HTML5 / CSS3 / Tailwind CSS',
-        'FastAPI & Flask',
-        'Discord.py',
-        'Node.js / React',
-      ],
-    },
-    {
-      title: 'Databases',
-      icon: 'Database',
-      subtext: 'Designing structured relational and document schemas with optimized queries and resilient storage.',
-      skills: [
-        'MongoDB',
-        'PostgreSQL',
-        'SQLite & JSON',
-      ],
-    },
-    {
-      title: 'DevOps, Cloud & Infrastructure',
-      icon: 'Server',
-      subtext: 'Provisioning secure environments, automating CI/CD pipelines, and managing game/application nodes.',
-      skills: [
-        'Docker & Container Images',
-        'Pterodactyl Panel & Wings',
-        'Linux & WSL / VirtualBox',
-        'AWS & Render',
-        'Git & GitHub Actions',
-      ],
-    },
-    {
-      title: 'Architecture & Delivery',
-      icon: 'Zap',
-      subtext: 'Engineering lightning-fast responsive digital experiences with clean architecture and production-grade reliability.',
-      skills: [
-        'Fast Load Times',
-        'Responsive Design',
-        'Direct Contact & Socials',
-        'Clean Architecture',
-        'REST APIs',
-      ],
-    },
-  ],
+  identityNotes: 'Manish Yadav · Developer & Tech Entrepreneur',
 };
 
 export type Project = {
@@ -122,6 +87,7 @@ export type Project = {
   title: string;
   category: string;
   filterCategory: string;
+  statusBadge: string;
   description: string;
   tags: string[];
   image?: string;
@@ -136,205 +102,227 @@ export const projects: Project[] = [
     title: 'ArixByte',
     category: 'Hosting Infrastructure & Technology Business',
     filterCategory: 'Infrastructure',
+    statusBadge: 'IN PRODUCTION',
     description:
-      'A hosting and technology platform focused on game servers, web hosting, bot hosting, databases, and developer infrastructure.',
-    tags: ['Hosting', 'Infrastructure', 'Pterodactyl', 'Databases'],
-    image: '/images/projects/arixbyte.jpg', // TODO: Add screenshot
-    liveUrl: '', // TODO: Add ArixByte URL
+      'A scalable hosting and infrastructure platform engineered for game servers, high-availability web hosting, Discord bot runtimes, and developer databases with Pterodactyl integration.',
+    tags: ['Hosting', 'Pterodactyl', 'Docker', 'Linux', 'Databases'],
+    image: '/images/projects/arixbyte.jpg',
+    liveUrl: 'https://arixbyte.com',
   },
   {
     id: 'ender-bot',
     number: '02',
     title: 'Ender Bot',
-    category: 'Discord Automation & Dashboard',
+    category: 'Discord Automation & Management Suite',
     filterCategory: 'Automation',
+    statusBadge: 'PUBLIC BOT',
     description:
-      'A multipurpose Discord bot ecosystem featuring moderation, server configuration, automation, support features, and a companion dashboard.',
-    tags: ['Python', 'Discord API', 'MongoDB', 'Dashboard'],
-    image: '/images/projects/enderbot.jpg', // TODO: Add screenshot
+      'A multipurpose Discord automation ecosystem featuring granular moderation, automated guild configuration, custom logging, and a web companion dashboard.',
+    tags: ['Python', 'Discord API', 'MongoDB', 'FastAPI', 'Automation'],
+    image: '/images/projects/enderbot.jpg',
   },
   {
     id: 'aegra',
     number: '03',
     title: 'AEGRA',
-    category: 'Android Safety Application',
+    category: 'Android Safety Application Concept',
     filterCategory: 'Mobile',
+    statusBadge: 'NATIVE ANDROID',
     description:
-      'An Android safety application focused on emergency assistance, trusted contacts, location sharing, and personal safety features.',
-    tags: ['Android', 'Kotlin', 'Location Services', 'APIs'],
-    image: '/images/projects/aegra.jpg', // TODO: Add screenshot
+      'An emergency personal safety application built for rapid SOS response, featuring multi-tier fail-safe GPS retrieval, automated 112 calling fallback, and time-limited live location sharing.',
+    tags: ['Android', 'Kotlin', 'Jetpack Compose', 'Location Services', 'Room DB'],
+    image: '/images/projects/aegra.jpg',
   },
   {
     id: 'web-experiences',
     number: '04',
-    title: 'Personal Web Experiences',
-    category: 'Web Development',
+    title: 'Modern Web Experiences',
+    category: 'Full-Stack Web Development',
     filterCategory: 'Development',
+    statusBadge: 'LIVE APPS',
     description:
-      'Responsive websites and dashboards designed to combine functionality, usability, and distinctive visual identity.',
-    tags: ['Web Development', 'UI/UX', 'APIs'],
-    image: '/images/projects/web.jpg', // TODO: Add screenshot
+      'Responsive, high-speed web applications and dashboards engineered to blend performance, accessibility, and luxury editorial design aesthetics.',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Framer Motion'],
+    image: '/images/projects/web.jpg',
   },
   {
     id: 'hosting-automation',
     number: '05',
-    title: 'Hosting Automation',
-    category: 'Infrastructure & Automation',
-    filterCategory: 'Automation',
+    title: 'Infrastructure & DevOps Automation',
+    category: 'Cloud & System Administration',
+    filterCategory: 'Infrastructure',
+    statusBadge: 'DEVOPS',
     description:
-      'Custom server environments, deployment workflows, hosting configurations, and management tools.',
-    tags: ['Docker', 'Linux', 'Automation', 'Server Management'],
-    image: '/images/projects/automation.jpg', // TODO: Add screenshot
+      'Automated server deployment workflows, container orchestration recipes, reverse proxy setups, and proactive resource monitoring scripts for cloud nodes.',
+    tags: ['Docker', 'Linux', 'Bash', 'GitHub Actions', 'AWS'],
+    image: '/images/projects/automation.jpg',
   },
 ];
 
 export const projectFilters = [
   'All',
-  'Development',
   'Infrastructure',
   'Automation',
+  'Development',
   'Mobile',
 ];
 
-export type TimelineEntry = {
-  date: string;
-  role: string;
-  organization: string;
-  description: string;
-  skills: string[];
-  current?: boolean;
+export const expertise = {
+  chapterNumber: '03',
+  chapterLabel: 'HOW I THINK & WORK',
+  chapterSubtitle: 'DEPTH MEETS PERSPECTIVE',
+  displayHeadline: 'How I work. From architecture to impact.',
+  tiers: [
+    {
+      title: 'Languages',
+      context: 'Crafting high-concurrency bot systems, scalable APIs, and interactive full-stack web applications.',
+      skills: [
+        'Python',
+        'JavaScript',
+        'TypeScript',
+        'HTML5 / CSS3 / Tailwind CSS',
+        'FastAPI & Flask',
+        'Discord.py',
+        'Node.js / React',
+      ],
+    },
+    {
+      title: 'Databases',
+      context: 'Designing structured relational and document schemas with optimized queries and resilient storage.',
+      skills: [
+        'MongoDB',
+        'PostgreSQL',
+        'SQLite & JSON',
+        'Redis Caching',
+        'Schema Migrations',
+      ],
+    },
+    {
+      title: 'DevOps, Cloud & Infrastructure',
+      context: 'Provisioning secure environments, automating CI/CD pipelines, and managing game/application nodes.',
+      skills: [
+        'Docker & Container Images',
+        'Pterodactyl Panel & Wings',
+        'Linux & WSL / VirtualBox',
+        'AWS & Render',
+        'Git & GitHub Actions',
+      ],
+    },
+    {
+      title: 'Architecture & Delivery',
+      context: 'Engineering lightning-fast responsive digital experiences with clean architecture and production-grade reliability.',
+      skills: [
+        'Fast Load Times',
+        'Responsive Design',
+        'Direct Contact & Socials',
+        'Clean Architecture',
+        'REST APIs',
+      ],
+    },
+  ],
+  processSteps: [
+    {
+      number: '01',
+      title: 'Understand the Architecture',
+      description: 'Break down system bottlenecks, latency targets, throughput requirements, and developer experience before touching code.',
+    },
+    {
+      number: '02',
+      title: 'Shape the System',
+      description: 'Design modular services, fault-tolerant database schemas, and clean interfaces that scale smoothly without rework.',
+    },
+    {
+      number: '03',
+      title: 'Deploy & Monitor',
+      description: 'Automate build and deployment pipelines, implement health checks, and maintain 99.9% uptime across production environments.',
+    },
+  ],
 };
 
-export const timeline: TimelineEntry[] = [
-  {
-    date: '2024 — Present', // TODO: Update with actual start date
-    role: 'CTO × CMO',
-    organization: 'ArixByte Ltd',
-    description:
-      'Leading technology architecture, product development, infrastructure operations, and brand strategy for a growing hosting and technology platform.',
-    skills: [
-      'Technical Leadership',
-      'Product Development',
-      'Infrastructure',
-      'Branding',
-    ],
-    current: true,
-  },
-  // TODO: Add more verified experience entries below
-  // {
-  //   date: 'YYYY — YYYY',
-  //   role: 'Role Title',
-  //   organization: 'Organization',
-  //   description: 'Description of responsibilities and achievements.',
-  //   skills: ['Skill 1', 'Skill 2'],
-  // },
-];
-
-export const whatIDo = [
-  {
-    title: 'Technical Leadership',
-    description:
-      'Guiding technology decisions, architecture planning, and engineering teams toward building robust digital products.',
-  },
-  {
-    title: 'Product Development',
-    description:
-      'Transforming ideas into working software — from concept and architecture through development and launch.',
-  },
-  {
-    title: 'Infrastructure Planning',
-    description:
-      'Designing and managing hosting environments, deployment pipelines, and server infrastructure at scale.',
-  },
-  {
-    title: 'Business & Brand Growth',
-    description:
-      'Building brand identity, marketing strategy, and business operations alongside the technical foundations.',
-  },
-];
-
-export const process = [
-  {
-    step: '01',
-    title: 'Discover',
-    description: 'Understand the idea, objectives, and users.',
-  },
-  {
-    step: '02',
-    title: 'Plan',
-    description: 'Define the architecture, features, and roadmap.',
-  },
-  {
-    step: '03',
-    title: 'Build',
-    description:
-      'Develop the product with maintainable, practical engineering.',
-  },
-  {
-    step: '04',
-    title: 'Test',
-    description: 'Validate functionality, fix issues, and improve performance.',
-  },
-  {
-    step: '05',
-    title: 'Launch & Improve',
-    description: 'Deploy, monitor, and iterate based on feedback.',
-  },
-];
-
-export const achievements = [
-  {
-    title: 'ArixByte Platform',
-    description:
-      'Built and launched a hosting infrastructure business serving game servers, web hosting, and developer tools.',
-  },
-  {
-    title: 'Ender Bot Ecosystem',
-    description:
-      'Developed a multipurpose Discord bot with moderation, automation, and an integrated dashboard.',
-  },
-  {
-    title: 'AEGRA Safety App',
-    description:
-      'Designed and developed an Android safety application with emergency SOS, location sharing, and trusted contact features.',
-  },
-  // TODO: Add more verified achievements
-];
-
-export type Testimonial = {
-  quote: string;
-  name: string;
-  role: string;
-  organization: string;
-  verified: boolean;
+export const impact = {
+  chapterNumber: '04',
+  chapterLabel: 'THE WORK, MULTIPLIED',
+  chapterSubtitle: 'SYSTEMS. STABILITY. POSSIBILITY.',
+  displayHeadline: 'Reach is a number. Reliability is personal.',
+  introText:
+    'Every container deployed, every Discord server automated, and every line of code shipped represents hours saved, communities connected, and critical systems running without downtime.',
+  stats: [
+    {
+      number: '50,000+',
+      metric: 'Users & Community',
+      note: 'Active community members and bot end-users supported across production servers.',
+    },
+    {
+      number: '100+',
+      metric: 'Managed Instances',
+      note: 'Game nodes, web containers, and database instances maintained with continuous monitoring.',
+    },
+    {
+      number: '100%',
+      metric: 'Privacy First',
+      note: 'Zero cloud telemetry architecture implemented on AEGRA for local emergency persistence.',
+    },
+  ],
 };
 
-// NOTE: Set verified to true only for real testimonials.
-// The section will be hidden when no verified testimonials exist.
-export const testimonials: Testimonial[] = [
-  // {
-  //   quote: 'Sample testimonial text here.',
-  //   name: 'Person Name',
-  //   role: 'Role',
-  //   organization: 'Organization',
-  //   verified: true,
-  // },
-];
+export const journey = {
+  chapterNumber: '05',
+  chapterLabel: 'STILL BECOMING',
+  chapterSubtitle: 'A JOURNEY IN MOTION',
+  displayHeadline: 'Started with code. Kept building deeper.',
+  milestones: [
+    {
+      year: '2021',
+      tag: 'THE SPARK',
+      title: 'First Lines of Code & Discord Automation',
+      description:
+        'Wrote my first Python scripts and built Discord bots to automate community moderation, event management, and interactive commands.',
+    },
+    {
+      year: '2022',
+      tag: 'INFRASTRUCTURE',
+      title: 'Linux Systems & Server Virtualization',
+      description:
+        'Transitioned into dedicated Linux server administration, Docker containerization, and hosting game servers with automated provisioning.',
+    },
+    {
+      year: '2023',
+      tag: 'ENTREPRENEURSHIP',
+      title: 'Co-Founding ArixByte Platform',
+      description:
+        'Launched ArixByte, architecting server nodes, custom Pterodactyl panels, database clusters, and client support workflows for developer hosting.',
+    },
+    {
+      year: '2024',
+      tag: 'MOBILE & WEB',
+      title: 'AEGRA Safety Engine & Modern Web Dashboards',
+      description:
+        'Engineered AEGRA native Android personal safety application with fail-safe location engines, while building high-performance modern web platforms.',
+    },
+    {
+      year: 'Today',
+      tag: 'WHAT COMES NEXT',
+      title: 'Expanding Infrastructure & Building What Matters',
+      description:
+        'Scaling hosting nodes, developing developer tools, and collaborating on high-impact software products with a founder mindset.',
+    },
+  ],
+};
 
 export const contact = {
-  heading: ["LET'S BUILD", "WHAT'S NEXT."],
+  chapterNumber: '06',
+  chapterLabel: 'THE NEXT CHAPTER',
+  chapterSubtitle: 'LET\'S MAKE IT MATTER',
+  displayHeadline: "Open to meaningful conversations & building what's next.",
   description:
-    "Have an idea, a project, or an interesting technical challenge? Let's turn it into something real.",
-  email: '', // TODO: Add your email
+    "Something great starts with a hello. Whether it's cloud hosting, infrastructure consulting, Discord bot systems, or building a new digital product — I'd love to connect.",
   web3formsKey: '104a3afe-fcc0-42e9-a5b5-d930902292e4',
-  links: {
-    linkedIn: '', // TODO: Add LinkedIn URL
-    github: '', // TODO: Add GitHub URL
-    arixbyte: '', // TODO: Add ArixByte URL
-    discord: '', // TODO: Add Discord invite URL
-  },
-  footer: {
-    tagline: 'Designed with intent. Built with purpose.',
-    copyright: `© ${new Date().getFullYear()} Manish Yadav. All rights reserved.`,
-  },
+  email: 'manishyadav.business@gmail.com', // Editable fallback
+  socials: [
+    { label: 'LinkedIn', href: 'https://linkedin.com', id: 'linkedin' },
+    { label: 'GitHub', href: 'https://github.com/justyadav', id: 'github' },
+    { label: 'Discord', href: 'https://discord.gg', id: 'discord' },
+    { label: 'Email', href: 'mailto:manishyadav.business@gmail.com', id: 'email' },
+  ],
+  footerText: `© ${new Date().getFullYear()} MANISH YADAV — CREATED WITH PASSION, ENGINEERING & VISION.`,
 };

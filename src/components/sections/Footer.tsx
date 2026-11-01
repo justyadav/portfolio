@@ -1,5 +1,5 @@
-import { contact, siteConfig } from '../../data/portfolio';
 import { ArrowUp } from 'lucide-react';
+import { siteConfig } from '../../data/portfolio';
 
 export function Footer() {
   const scrollToTop = () => {
@@ -7,50 +7,32 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#08080D] border-t border-[#2A2A35] py-14 overflow-hidden">
-      {/* Subtle background glow */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-24 bg-[#9367FF]/5 blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-
-      <div className="section-container relative z-10 flex flex-col items-center text-center">
-        {/* Monogram / Brand Icon */}
-        <div className="mb-6">
-          <button
-            onClick={scrollToTop}
-            aria-label="Back to top"
-            className="group flex flex-col items-center gap-2 cursor-pointer transition-transform hover:scale-105"
-          >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#9367FF] via-[#7B52E0] to-[#7B263B] p-[1px] shadow-lg shadow-[#9367FF]/20">
-              <div className="w-full h-full bg-[#08080D] rounded-xl flex items-center justify-center group-hover:bg-[#15151C] transition-colors">
-                <span className="font-serif font-bold text-lg bg-gradient-to-r from-[#9367FF] to-[#F5F3F7] bg-clip-text text-transparent">
-                  {siteConfig.monogram}
-                </span>
-              </div>
-            </div>
-          </button>
+    <footer className="w-full border-t border-white/[0.08] bg-[#030303] py-12 relative z-20">
+      <div className="section-container flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono text-[#8c8c8c]">
+        {/* Left: Brand / Copyright */}
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+          <span className="font-semibold text-[#f1eee8]">{siteConfig.name}</span>
+          <span className="hidden sm:inline opacity-30">·</span>
+          <span>{siteConfig.title}</span>
         </div>
 
-        {/* Tagline */}
-        <p className="font-serif italic text-base sm:text-lg text-[#F5F3F7]/90 tracking-wide mb-3">
-          {contact.footer.tagline}
-        </p>
+        {/* Center: Dynamic Year & Heritage */}
+        <div className="text-center">
+          <span>© {new Date().getFullYear()} — Built with purpose & precision.</span>
+        </div>
 
-        {/* Copyright */}
-        <p className="text-xs sm:text-sm text-[#A5A2AE] font-mono tracking-wider mb-8">
-          {contact.footer.copyright}
-        </p>
-
-        {/* Back to top link */}
+        {/* Right: Back to Top */}
         <button
           onClick={scrollToTop}
-          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#A5A2AE] hover:text-[#9367FF] transition-colors cursor-pointer group"
+          className="inline-flex items-center gap-1.5 text-[#aaa9a4] hover:text-[#ff8c59] transition-colors cursor-pointer"
+          aria-label="Scroll back to top"
         >
-          <span>BACK TO TOP</span>
-          <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
+          <span>Back to top</span>
+          <ArrowUp className="w-3.5 h-3.5" />
         </button>
       </div>
     </footer>
   );
 }
+
+export default Footer;
