@@ -43,7 +43,7 @@ export function Journey() {
                 <span className="text-xl sm:text-2xl font-display text-[#f1eee8] font-normal">
                   {milestone.year}
                 </span>
-                <span className="text-[10px] tracking-widest text-[#ff8c59] uppercase px-2 py-0.5 rounded bg-[#161616] border border-white/10">
+                <span className="text-xs tracking-widest text-[#ff8c59] uppercase px-2 py-0.5 rounded bg-[#161616] border border-white/10">
                   {milestone.tag}
                 </span>
               </div>

@@ -90,7 +90,7 @@ export function Navbar({ activeSection }: NavbarProps) {
             </a>
 
             {/* Live Indicator (Sarthak style) */}
-            <div className="hidden lg:flex items-center gap-2 pl-4 border-l border-white/10 text-[11px] font-mono text-[#c2bfb8]">
+            <div className="hidden lg:flex items-center gap-2 pl-4 border-l border-white/10 text-xs font-mono text-[#c2bfb8]">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -128,7 +128,7 @@ export function Navbar({ activeSection }: NavbarProps) {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="min-h-[44px] inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/15 bg-[#121212] hover:bg-[#1a1a1a] hover:border-[#ff8c59]/50 text-xs font-mono text-[#f1eee8] hover:text-white transition-all duration-200 group shadow-sm"
+              className="btn-secondary !min-h-[40px] !py-2 !px-4 !text-xs !font-mono gap-1.5 group shadow-sm"
             >
               <span>Let's Connect</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#ff8c59] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -160,7 +160,7 @@ export function Navbar({ activeSection }: NavbarProps) {
             className="fixed inset-0 z-40 bg-[#030303]/98 backdrop-blur-2xl pt-28 px-8 pb-12 flex flex-col justify-between md:hidden"
           >
             <div className="flex flex-col space-y-4">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-[#b0ada6]">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#b0ada6]">
                 INDEX / DIRECTORY
               </span>
               {navigation.map((item) => (
@@ -184,7 +184,7 @@ export function Navbar({ activeSection }: NavbarProps) {
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, '#contact')}
-                className="w-full min-h-[48px] py-3.5 flex items-center justify-center rounded-xl bg-[#ff8c59] text-[#030303] font-semibold text-sm tracking-wide"
+                className="btn-primary w-full !rounded-xl"
               >
                 Let's Connect
               </a>

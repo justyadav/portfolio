@@ -119,7 +119,7 @@ export function Contact() {
                   <button
                     type="button"
                     onClick={handleCopyEmail}
-                    className="min-h-[44px] inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#181818] border border-white/10 text-xs font-mono text-[#f1eee8] hover:border-[#ff8c59] transition-colors cursor-pointer"
+                    className="btn-secondary !min-h-[44px] !rounded-lg !px-4 !py-2.5 !text-xs !font-mono gap-1.5"
                   >
                     {copiedEmail ? (
                       <>
@@ -136,7 +136,7 @@ export function Contact() {
 
                   <a
                     href={`mailto:${contact.email}`}
-                    className="min-h-[44px] inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#ff8c59] text-[#030303] text-xs font-mono font-semibold hover:bg-[#ff7536] transition-colors"
+                    className="btn-primary !min-h-[44px] !rounded-lg !px-4 !py-2.5 !text-xs !font-mono gap-1.5"
                   >
                     <span>Send Mail</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -258,7 +258,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="w-full min-h-[48px] py-4 px-6 rounded-xl bg-[#ff8c59] hover:bg-[#ff7536] text-[#030303] font-semibold text-sm tracking-wide transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                className="btn-primary w-full !rounded-xl !min-h-[48px] !py-4 !px-6 text-sm flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 {status === 'submitting' ? (
                   <span>Sending Message...</span>

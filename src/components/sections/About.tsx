@@ -50,7 +50,7 @@ export function About() {
                 className="w-full h-auto object-cover object-center aspect-[4/5] filter contrast-105 brightness-95 group-hover:scale-102 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0b] via-transparent to-transparent opacity-80" />
-              <div className="absolute bottom-5 left-5 right-5 font-mono text-[11px] text-[#c2bfb8] tracking-wider uppercase">
+              <div className="absolute bottom-5 left-5 right-5 font-mono text-xs text-[#c2bfb8] tracking-wider uppercase">
                 {about.identityNotes}
               </div>
             </div>

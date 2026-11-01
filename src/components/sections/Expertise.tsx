@@ -39,7 +39,7 @@ export function Expertise() {
               className="editorial-card p-6 sm:p-7 flex flex-col justify-between"
             >
               <div>
-                <span className="font-mono text-[10px] tracking-widest text-[#ff8c59] uppercase block mb-3">
+                <span className="font-mono text-xs tracking-widest text-[#ff8c59] uppercase block mb-3">
                   TIER 0{idx + 1}
                 </span>
                 <h3 className="font-sans font-semibold text-lg sm:text-xl text-[#f1eee8] mb-3">
@@ -54,7 +54,7 @@ export function Expertise() {
                 {tier.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-[#161616] border border-white/[0.08] text-[#f1eee8]"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono bg-[#161616] border border-white/[0.08] text-[#f1eee8]"
                   >
                     <span className="w-1 h-1 rounded-full bg-[#ff8c59]" />
                     {skill}

@@ -36,7 +36,7 @@ export function Projects() {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`min-h-[44px] px-4 py-2.5 rounded-full text-xs font-mono transition-all duration-200 cursor-pointer inline-flex items-center justify-center ${
+                className={`btn-pill ${
                   activeFilter === filter
                     ? 'bg-[#ff8c59] text-[#030303] font-semibold shadow-[0_0_20px_rgba(255,140,89,0.3)]'
                     : 'bg-[#121212] border border-white/10 text-[#c2bfb8] hover:text-[#f1eee8] hover:border-white/25'
@@ -67,7 +67,7 @@ export function Projects() {
                     <span className="text-[#ff8c59] font-medium tracking-widest">
                       {project.number}
                     </span>
-                    <span className="px-2.5 py-1 rounded bg-[#181818] border border-white/10 text-[#c2bfb8] text-[10px] tracking-wider uppercase">
+                    <span className="px-2.5 py-1 rounded bg-[#181818] border border-white/10 text-[#c2bfb8] text-xs tracking-wider uppercase">
                       {project.statusBadge}
                     </span>
                   </div>
@@ -94,7 +94,7 @@ export function Projects() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-[#161616] border border-white/[0.06] text-[#b0ada6]"
+                        className="px-2.5 py-1 rounded-md text-xs font-mono bg-[#161616] border border-white/[0.06] text-[#b0ada6]"
                       >
                         {tag}
                       </span>

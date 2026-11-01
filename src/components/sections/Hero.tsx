@@ -53,7 +53,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-wrap items-center gap-3 mb-6 sm:mb-8 font-mono text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#c2bfb8]"
+            className="flex flex-wrap items-center gap-3 mb-6 sm:mb-8 font-mono text-xs tracking-[0.15em] text-[#c2bfb8]"
           >
             <span className="text-[#ff8c59] font-medium">{hero.topline}</span>
             <span className="opacity-40">·</span>
@@ -95,7 +95,7 @@ export function Hero() {
             <a
               href={hero.ctaPrimary.href}
               onClick={(e) => handleSmoothScroll(e, hero.ctaPrimary.href)}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#f1eee8] hover:bg-white text-[#030303] font-medium text-sm tracking-wide transition-all duration-300 hover:shadow-[0_0_30px_rgba(241,238,232,0.25)] group"
+              className="btn-primary gap-2 group"
             >
               <span>{hero.ctaPrimary.label}</span>
               <ArrowUpRight className="w-4 h-4 text-[#030303] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -104,7 +104,7 @@ export function Hero() {
             <a
               href={hero.ctaSecondary.href}
               onClick={(e) => handleSmoothScroll(e, hero.ctaSecondary.href)}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/15 bg-[#0b0b0b]/60 hover:bg-[#141414] hover:border-white/30 text-[#f1eee8] font-medium text-sm tracking-wide transition-all duration-300 backdrop-blur-sm"
+              className="btn-secondary gap-2"
             >
               <span>{hero.ctaSecondary.label}</span>
             </a>

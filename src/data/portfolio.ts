@@ -24,9 +24,9 @@ export const navigation = [
 ];
 
 export const hero = {
-  topline: 'ENGINEER · BUILDER · ENTREPRENEUR',
+  topline: 'Engineer · Builder · Entrepreneur',
   kicker: 'BASED IN INDIA · BUILDING AT SCALE',
-  displayHeadline: 'A HUMAN PERSPECTIVE ON TECHNOLOGY.',
+  displayHeadline: 'A human perspective on technology.',
   leadText:
     'I turn ideas into digital products — from scalable hosting infrastructure and automation to web applications, Discord ecosystems, and emerging mobile experiences.',
   portrait: '/images/portrait.webp',
