@@ -24,7 +24,7 @@ export function Footer() {
         {/* Right: Back to Top with Accessible Touch Target */}
         <button
           onClick={scrollToTop}
-          className="min-h-[44px] min-w-[44px] px-3 py-2 inline-flex items-center justify-center gap-1.5 text-[#c2bfb8] hover:text-[#ff8c59] transition-colors cursor-pointer"
+          className="btn-secondary !min-h-[40px] !py-2 !px-4 !text-xs !font-mono gap-1.5"
           aria-label="Scroll back to top"
         >
           <span>Back to top</span>

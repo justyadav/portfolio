@@ -16,14 +16,14 @@ export function ProofStrip() {
               className="flex flex-col justify-center px-4 sm:px-6 lg:px-8 py-5 sm:py-2 first:pl-0 last:pr-0"
             >
               <div className="flex items-baseline gap-2 mb-1.5">
-                <span className="font-sans font-light text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[#f1eee8]">
+                <span className="font-sans font-light text-2xl sm:text-4xl tracking-tight text-[#f1eee8]">
                   {item.metric.replace('+', '')}
                 </span>
-                <span className="font-mono text-xl sm:text-2xl text-[#ff8c59] font-medium">
+                <span className="font-mono text-2xl text-[#ff8c59] font-medium">
                   {item.metric.includes('+') ? '+' : item.metric.includes('%') ? '%' : ''}
                 </span>
               </div>
-              <p className="text-xs sm:text-sm text-[#aaa9a4] font-normal leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#c2bfb8] font-normal leading-relaxed">
                 {item.label}
               </p>
             </motion.div>

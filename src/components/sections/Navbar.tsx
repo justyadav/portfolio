@@ -81,7 +81,7 @@ export function Navbar({ activeSection }: NavbarProps) {
               className="group min-h-[44px] flex items-center gap-2.5 text-inherit no-underline focus:outline-none"
               aria-label={`${siteConfig.name} - Home`}
             >
-              <span className="font-mono text-xs font-semibold tracking-wider px-2 py-1 rounded bg-[#161616] border border-white/10 text-[#ff8c59] group-hover:border-[#ff8c59]/60 transition-colors">
+              <span className="font-mono text-xs font-semibold tracking-wider px-2.5 py-1 rounded-full bg-[#161616] border border-white/10 text-[#ff8c59] group-hover:border-[#ff8c59]/60 transition-colors">
                 {siteConfig.brandSymbol}
               </span>
               <span className="font-sans font-semibold text-sm sm:text-base tracking-tight text-[#f1eee8] group-hover:text-white transition-colors">
@@ -110,7 +110,7 @@ export function Navbar({ activeSection }: NavbarProps) {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`min-h-[40px] inline-flex items-center px-3 py-1.5 text-xs font-mono tracking-wide rounded-md transition-all duration-200 ${
+                  className={`min-h-[40px] inline-flex items-center px-3 py-1.5 text-xs font-mono tracking-wide rounded-full transition-all duration-200 ${
                     isActive
                       ? 'text-[#ff8c59] bg-[#161616] border border-[#ff8c59]/30'
                       : 'text-[#c2bfb8] hover:text-[#f1eee8] hover:bg-white/[0.04]'
@@ -139,7 +139,7 @@ export function Navbar({ activeSection }: NavbarProps) {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="min-w-[48px] min-h-[48px] flex items-center justify-center p-2.5 rounded-lg bg-[#141414] border border-white/10 text-[#f1eee8] hover:text-white focus:outline-none cursor-pointer"
+              className="btn-icon"
               aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isMobileMenuOpen}
             >
@@ -184,7 +184,7 @@ export function Navbar({ activeSection }: NavbarProps) {
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, '#contact')}
-                className="btn-primary w-full !rounded-xl"
+                className="btn-primary w-full"
               >
                 Let's Connect
               </a>

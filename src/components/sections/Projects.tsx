@@ -22,7 +22,7 @@ export function Projects() {
         {/* Display Heading & Filter Pills */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 sm:mb-20">
           <div>
-            <h2 className="font-display italic text-3xl sm:text-5xl lg:text-6xl text-[#f1eee8] leading-[1.15] max-w-2xl">
+            <h2 className="font-display italic text-4xl sm:text-6xl text-[#f1eee8] leading-[1.15] max-w-2xl">
               Ideas are a start. This is the work.
             </h2>
             <p className="mt-4 text-sm sm:text-base text-[#c2bfb8] max-w-xl">
@@ -67,13 +67,13 @@ export function Projects() {
                     <span className="text-[#ff8c59] font-medium tracking-widest">
                       {project.number}
                     </span>
-                    <span className="px-2.5 py-1 rounded bg-[#181818] border border-white/10 text-[#c2bfb8] text-xs tracking-wider uppercase">
+                    <span className="px-2.5 py-1 rounded-full bg-[#181818] border border-white/10 text-[#c2bfb8] text-xs tracking-wider uppercase">
                       {project.statusBadge}
                     </span>
                   </div>
 
                   {/* Project Title */}
-                  <h3 className="font-sans font-bold text-2xl sm:text-3xl text-[#f1eee8] group-hover:text-white transition-colors mb-2 tracking-tight">
+                  <h3 className="font-sans font-bold text-2xl text-[#f1eee8] group-hover:text-white transition-colors mb-2 tracking-tight">
                     {project.title}
                   </h3>
 
@@ -94,7 +94,7 @@ export function Projects() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 rounded-md text-xs font-mono bg-[#161616] border border-white/[0.06] text-[#b0ada6]"
+                        className="px-2.5 py-1 rounded-full text-xs font-mono bg-[#161616] border border-white/[0.06] text-[#b0ada6]"
                       >
                         {tag}
                       </span>

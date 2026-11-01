@@ -19,7 +19,7 @@ export function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="font-display italic text-3xl sm:text-5xl lg:text-6xl text-[#f1eee8] leading-[1.15] max-w-4xl mb-16 sm:mb-24"
+          className="font-display italic text-4xl sm:text-6xl text-[#f1eee8] leading-[1.15] max-w-4xl mb-16 sm:mb-24"
         >
           {about.displayHeadline}
         </motion.h2>
@@ -34,7 +34,7 @@ export function About() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 flex flex-col gap-4"
           >
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0b0b0b] group shadow-2xl">
+            <div className="relative rounded-xl overflow-hidden border border-white/10 bg-[#0b0b0b] group shadow-2xl">
               <img
                 src={getAssetUrl('/images/portrait.webp')}
                 onError={(e) => {
@@ -77,8 +77,8 @@ export function About() {
             </div>
 
             {/* Editorial Pull Quote in Serif */}
-            <blockquote className="p-6 sm:p-8 rounded-2xl bg-[#0b0b0b] border-l-2 border-[#ff8c59] border-y border-r border-white/[0.06] mb-10 sm:mb-12 shadow-lg">
-              <p className="font-display italic text-xl sm:text-2xl lg:text-3xl text-[#f1eee8] leading-snug">
+            <blockquote className="p-6 sm:p-8 rounded-xl bg-[#0b0b0b] border-l-2 border-[#ff8c59] border-y border-r border-white/[0.06] mb-10 sm:mb-12 shadow-lg">
+              <p className="font-display italic text-lg sm:text-2xl text-[#f1eee8] leading-snug">
                 {about.pullQuote}
               </p>
             </blockquote>

@@ -19,7 +19,7 @@ export function Journey() {
           transition={{ duration: 0.8 }}
           className="mb-16 sm:mb-24"
         >
-          <h2 className="font-display italic text-3xl sm:text-5xl lg:text-6xl text-[#f1eee8] leading-[1.15] max-w-3xl">
+          <h2 className="font-display italic text-4xl sm:text-6xl text-[#f1eee8] leading-[1.15] max-w-3xl">
             {journey.displayHeadline}
           </h2>
         </motion.div>
@@ -40,16 +40,16 @@ export function Journey() {
 
               {/* Year and Tag */}
               <div className="flex items-center gap-3 mb-2 font-mono text-xs">
-                <span className="text-xl sm:text-2xl font-display text-[#f1eee8] font-normal">
+                <span className="text-2xl font-display text-[#f1eee8] font-normal">
                   {milestone.year}
                 </span>
-                <span className="text-xs tracking-widest text-[#ff8c59] uppercase px-2 py-0.5 rounded bg-[#161616] border border-white/10">
+                <span className="text-xs tracking-widest text-[#ff8c59] uppercase px-2.5 py-0.5 rounded-full bg-[#161616] border border-white/10">
                   {milestone.tag}
                 </span>
               </div>
 
               {/* Title */}
-              <h3 className="font-sans font-semibold text-lg sm:text-xl text-[#f1eee8] mb-2 tracking-tight">
+              <h3 className="font-sans font-semibold text-lg text-[#f1eee8] mb-2 tracking-tight">
                 {milestone.title}
               </h3>
 

@@ -95,7 +95,7 @@ export function Contact() {
           transition={{ duration: 0.8 }}
           className="mb-16 sm:mb-20"
         >
-          <h2 className="font-display italic text-3xl sm:text-5xl lg:text-6xl text-[#f1eee8] leading-[1.15] max-w-3xl mb-4">
+          <h2 className="font-display italic text-4xl sm:text-6xl text-[#f1eee8] leading-[1.15] max-w-3xl mb-4">
             {contact.displayHeadline}
           </h2>
           <p className="text-base sm:text-lg text-[#c2bfb8] max-w-xl leading-relaxed">
@@ -119,7 +119,7 @@ export function Contact() {
                   <button
                     type="button"
                     onClick={handleCopyEmail}
-                    className="btn-secondary !min-h-[44px] !rounded-lg !px-4 !py-2.5 !text-xs !font-mono gap-1.5"
+                    className="btn-secondary !min-h-[44px] !px-4 !py-2.5 !text-xs !font-mono gap-1.5"
                   >
                     {copiedEmail ? (
                       <>
@@ -136,7 +136,7 @@ export function Contact() {
 
                   <a
                     href={`mailto:${contact.email}`}
-                    className="btn-primary !min-h-[44px] !rounded-lg !px-4 !py-2.5 !text-xs !font-mono gap-1.5"
+                    className="btn-primary !min-h-[44px] !px-4 !py-2.5 !text-xs !font-mono gap-1.5"
                   >
                     <span>Send Mail</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -258,7 +258,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="btn-primary w-full !rounded-xl !min-h-[48px] !py-4 !px-6 text-sm flex items-center justify-center gap-2 disabled:opacity-50"
+                className="btn-primary w-full !min-h-[48px] !py-4 !px-6 text-sm flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 {status === 'submitting' ? (
                   <span>Sending Message...</span>

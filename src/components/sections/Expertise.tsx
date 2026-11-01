@@ -19,7 +19,7 @@ export function Expertise() {
           transition={{ duration: 0.8 }}
           className="mb-16 sm:mb-20"
         >
-          <h2 className="font-display italic text-3xl sm:text-5xl lg:text-6xl text-[#f1eee8] leading-[1.15] max-w-3xl">
+          <h2 className="font-display italic text-4xl sm:text-6xl text-[#f1eee8] leading-[1.15] max-w-3xl">
             {expertise.displayHeadline}
           </h2>
           <p className="mt-4 text-sm sm:text-base text-[#c2bfb8] max-w-xl">
@@ -42,7 +42,7 @@ export function Expertise() {
                 <span className="font-mono text-xs tracking-widest text-[#ff8c59] uppercase block mb-3">
                   TIER 0{idx + 1}
                 </span>
-                <h3 className="font-sans font-semibold text-lg sm:text-xl text-[#f1eee8] mb-3">
+                <h3 className="font-sans font-semibold text-lg text-[#f1eee8] mb-3">
                   {tier.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#c2bfb8] leading-relaxed mb-6 font-normal">
@@ -54,7 +54,7 @@ export function Expertise() {
                 {tier.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono bg-[#161616] border border-white/[0.08] text-[#f1eee8]"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono bg-[#161616] border border-white/[0.08] text-[#f1eee8]"
                   >
                     <span className="w-1 h-1 rounded-full bg-[#ff8c59]" />
                     {skill}
@@ -82,7 +82,7 @@ export function Expertise() {
                 className="flex flex-col"
               >
                 <div className="flex items-baseline gap-3 mb-4">
-                  <span className="font-display italic text-3xl sm:text-4xl text-[#ff8c59]">
+                  <span className="font-display italic text-2xl sm:text-4xl text-[#ff8c59]">
                     {step.number}
                   </span>
                   <h4 className="font-sans font-semibold text-base sm:text-lg text-[#f1eee8]">

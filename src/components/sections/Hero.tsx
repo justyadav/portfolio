@@ -65,7 +65,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="font-display italic text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[#f1eee8] leading-[1.05] tracking-tight mb-6 sm:mb-8 drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]"
+            className="font-display italic text-4xl sm:text-6xl text-[#f1eee8] leading-[1.05] tracking-tight mb-6 sm:mb-8 drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]"
           >
             {hero.displayHeadline}
           </motion.h1>
@@ -77,10 +77,10 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="space-y-4 mb-10 sm:mb-12"
           >
-            <h2 className="font-sans font-bold text-2xl sm:text-3xl text-white tracking-tight">
+            <h2 className="font-sans font-bold text-2xl text-white tracking-tight">
               {siteConfig.name}
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-[#c2bfb8] font-normal leading-[1.75] max-w-2xl">
+            <p className="text-base sm:text-lg text-[#c2bfb8] font-normal leading-[1.75] max-w-2xl">
               {hero.leadText}
             </p>
           </motion.div>

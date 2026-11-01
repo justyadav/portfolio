@@ -25,7 +25,7 @@ export const navigation = [
 
 export const hero = {
   topline: 'Engineer · Builder · Entrepreneur',
-  kicker: 'BASED IN INDIA · BUILDING AT SCALE',
+  kicker: 'Based in India · Building at scale',
   displayHeadline: 'A human perspective on technology.',
   leadText:
     'I turn ideas into digital products — from scalable hosting infrastructure and automation to web applications, Discord ecosystems, and emerging mobile experiences.',
