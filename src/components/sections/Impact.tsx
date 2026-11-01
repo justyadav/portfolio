@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { impact } from '../../data/portfolio';
+import { RollingNumber } from '../ui/RollingNumber';
 
 export function Impact() {
   return (
@@ -39,7 +40,7 @@ export function Impact() {
               className="flex flex-col"
             >
               <div className="font-display text-4xl sm:text-6xl text-[#f1eee8] tracking-tight mb-3">
-                {stat.number}
+                <RollingNumber value={stat.number} />
               </div>
               <div className="font-mono text-xs uppercase tracking-wider text-[#ff8c59] font-medium mb-3">
                 {stat.metric}

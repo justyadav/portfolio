@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { proofStrip } from '../../data/portfolio';
+import { RollingNumber } from '../ui/RollingNumber';
 
 export function ProofStrip() {
   return (
@@ -15,13 +16,13 @@ export function ProofStrip() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="flex flex-col justify-center px-4 sm:px-6 lg:px-8 py-5 sm:py-2 first:pl-0 last:pr-0"
             >
-              <div className="flex items-baseline gap-2 mb-1.5">
-                <span className="font-sans font-light text-2xl sm:text-4xl tracking-tight text-[#f1eee8]">
-                  {item.metric.replace('+', '')}
-                </span>
-                <span className="font-mono text-2xl text-[#ff8c59] font-medium">
-                  {item.metric.includes('+') ? '+' : item.metric.includes('%') ? '%' : ''}
-                </span>
+              <div className="flex items-baseline gap-1.5 mb-1.5">
+                <RollingNumber
+                  value={item.metric}
+                  className="font-sans font-light text-2xl sm:text-4xl tracking-tight text-[#f1eee8]"
+                  suffixClassName="font-mono text-2xl text-[#ff8c59] font-medium ml-0.5"
+                  separateSuffix={true}
+                />
               </div>
               <p className="text-xs sm:text-sm text-[#c2bfb8] font-normal leading-relaxed">
                 {item.label}
