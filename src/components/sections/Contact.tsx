@@ -98,7 +98,7 @@ export function Contact() {
           <h2 className="font-display italic text-3xl sm:text-5xl lg:text-6xl text-[#f1eee8] leading-[1.15] max-w-3xl mb-4">
             {contact.displayHeadline}
           </h2>
-          <p className="text-base sm:text-lg text-[#aaa9a4] max-w-xl leading-relaxed">
+          <p className="text-base sm:text-lg text-[#c2bfb8] max-w-xl leading-relaxed">
             {contact.description}
           </p>
         </motion.div>
@@ -108,7 +108,7 @@ export function Contact() {
           {/* Left Column: Direct Channels & Socials */}
           <div className="lg:col-span-5 space-y-8">
             <div className="editorial-card p-6 sm:p-8 space-y-6">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#8c8c8c] block">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#b0ada6] block">
                 DIRECT INBOX
               </span>
               <div>
@@ -119,7 +119,7 @@ export function Contact() {
                   <button
                     type="button"
                     onClick={handleCopyEmail}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#181818] border border-white/10 text-xs font-mono text-[#f1eee8] hover:border-[#ff8c59] transition-colors cursor-pointer"
+                    className="min-h-[44px] inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#181818] border border-white/10 text-xs font-mono text-[#f1eee8] hover:border-[#ff8c59] transition-colors cursor-pointer"
                   >
                     {copiedEmail ? (
                       <>
@@ -136,7 +136,7 @@ export function Contact() {
 
                   <a
                     href={`mailto:${contact.email}`}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#ff8c59] text-[#030303] text-xs font-mono font-semibold hover:bg-[#ff7536] transition-colors"
+                    className="min-h-[44px] inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#ff8c59] text-[#030303] text-xs font-mono font-semibold hover:bg-[#ff7536] transition-colors"
                   >
                     <span>Send Mail</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -145,22 +145,22 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Social Links */}
+            {/* Social Links with WCAG Accessible Touch Target Bounds */}
             <div className="editorial-card p-6 sm:p-8 space-y-4">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#8c8c8c] block">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#b0ada6] block">
                 CONNECTED PLATFORMS
               </span>
-              <div className="space-y-2">
+              <div className="space-y-1">
                 {contact.socials.map((social) => (
                   <a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between py-2 text-sm font-mono text-[#aaa9a4] hover:text-[#f1eee8] border-b border-white/[0.06] last:border-none group"
+                    className="min-h-[44px] flex items-center justify-between py-3 text-sm font-mono text-[#c2bfb8] hover:text-[#f1eee8] border-b border-white/[0.06] last:border-none group"
                   >
                     <span>{social.label}</span>
-                    <ArrowUpRight className="w-4 h-4 text-[#8c8c8c] group-hover:text-[#ff8c59] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    <ArrowUpRight className="w-4 h-4 text-[#b0ada6] group-hover:text-[#ff8c59] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                   </a>
                 ))}
               </div>
@@ -170,13 +170,13 @@ export function Contact() {
           {/* Right Column: Web3Forms Contact Form */}
           <div className="lg:col-span-7">
             <form onSubmit={handleSubmit} className="editorial-card p-7 sm:p-9 space-y-6">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#8c8c8c] block">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#b0ada6] block">
                 SEND A MESSAGE
               </span>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="name" className="block text-xs font-mono text-[#aaa9a4] mb-2 uppercase">
+                  <label htmlFor="name" className="block text-xs font-mono text-[#c2bfb8] mb-2 uppercase">
                     Your Name *
                   </label>
                   <input
@@ -187,12 +187,12 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Alex Morgan"
-                    className="w-full px-4 py-3 rounded-xl bg-[#030303] border border-white/10 text-sm text-[#f1eee8] placeholder-[#555] focus:outline-none focus:border-[#ff8c59] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-[#030303] border border-white/10 text-sm text-[#f1eee8] placeholder-[#8c8c8c] focus:outline-none focus:border-[#ff8c59] transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-xs font-mono text-[#aaa9a4] mb-2 uppercase">
+                  <label htmlFor="email" className="block text-xs font-mono text-[#c2bfb8] mb-2 uppercase">
                     Email Address *
                   </label>
                   <input
@@ -203,13 +203,13 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="alex@domain.com"
-                    className="w-full px-4 py-3 rounded-xl bg-[#030303] border border-white/10 text-sm text-[#f1eee8] placeholder-[#555] focus:outline-none focus:border-[#ff8c59] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-[#030303] border border-white/10 text-sm text-[#f1eee8] placeholder-[#8c8c8c] focus:outline-none focus:border-[#ff8c59] transition-colors"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-xs font-mono text-[#aaa9a4] mb-2 uppercase">
+                <label htmlFor="subject" className="block text-xs font-mono text-[#c2bfb8] mb-2 uppercase">
                   Subject / Project Type
                 </label>
                 <input
@@ -219,12 +219,12 @@ export function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Infrastructure Consulting / Development"
-                  className="w-full px-4 py-3 rounded-xl bg-[#030303] border border-white/10 text-sm text-[#f1eee8] placeholder-[#555] focus:outline-none focus:border-[#ff8c59] transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-[#030303] border border-white/10 text-sm text-[#f1eee8] placeholder-[#8c8c8c] focus:outline-none focus:border-[#ff8c59] transition-colors"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-xs font-mono text-[#aaa9a4] mb-2 uppercase">
+                <label htmlFor="message" className="block text-xs font-mono text-[#c2bfb8] mb-2 uppercase">
                   Message *
                 </label>
                 <textarea
@@ -235,7 +235,7 @@ export function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell me about your project, timeline, and requirements..."
-                  className="w-full px-4 py-3 rounded-xl bg-[#030303] border border-white/10 text-sm text-[#f1eee8] placeholder-[#555] focus:outline-none focus:border-[#ff8c59] transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-[#030303] border border-white/10 text-sm text-[#f1eee8] placeholder-[#8c8c8c] focus:outline-none focus:border-[#ff8c59] transition-colors resize-none"
                 />
               </div>
 
@@ -258,7 +258,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="w-full py-4 px-6 rounded-xl bg-[#ff8c59] hover:bg-[#ff7536] text-[#030303] font-semibold text-sm tracking-wide transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                className="w-full min-h-[48px] py-4 px-6 rounded-xl bg-[#ff8c59] hover:bg-[#ff7536] text-[#030303] font-semibold text-sm tracking-wide transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
               >
                 {status === 'submitting' ? (
                   <span>Sending Message...</span>

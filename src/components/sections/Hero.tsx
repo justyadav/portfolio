@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { hero, siteConfig } from '../../data/portfolio';
 import { getAssetUrl } from '../../utils/assets';
-import defaultPortrait from '../../assets/portrait.png';
+import defaultPortrait from '../../assets/portrait.webp';
 
 export function Hero() {
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -32,6 +32,10 @@ export function Hero() {
             src={hero.portrait ? getAssetUrl(hero.portrait) : defaultPortrait}
             alt=""
             aria-hidden="true"
+            width={1024}
+            height={576}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full max-h-[880px] object-cover sm:object-contain object-center opacity-40 sm:opacity-55 filter contrast-105 brightness-90 transition-opacity duration-1000"
           />
           {/* Multi-directional vignette dissolving portrait into #030303 */}
@@ -49,10 +53,10 @@ export function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-wrap items-center gap-3 mb-6 sm:mb-8 font-mono text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#aaa9a4]"
+            className="flex flex-wrap items-center gap-3 mb-6 sm:mb-8 font-mono text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#c2bfb8]"
           >
             <span className="text-[#ff8c59] font-medium">{hero.topline}</span>
-            <span className="opacity-30">·</span>
+            <span className="opacity-40">·</span>
             <span>{hero.kicker}</span>
           </motion.div>
 
@@ -76,7 +80,7 @@ export function Hero() {
             <h2 className="font-sans font-bold text-2xl sm:text-3xl text-white tracking-tight">
               {siteConfig.name}
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-[#aaa9a4] font-normal leading-[1.75] max-w-2xl">
+            <p className="text-base sm:text-lg lg:text-xl text-[#c2bfb8] font-normal leading-[1.75] max-w-2xl">
               {hero.leadText}
             </p>
           </motion.div>
@@ -109,7 +113,7 @@ export function Hero() {
       </div>
 
       {/* Hero Bottom Meta Strip */}
-      <div className="section-container w-full relative z-10 flex items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#8c8c8c]">
+      <div className="section-container w-full relative z-10 flex items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#b0ada6]">
         {/* Left: Location Coordinates */}
         <div className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-[#ff8c59]" />
@@ -120,7 +124,7 @@ export function Hero() {
         <a
           href="#about"
           onClick={(e) => handleSmoothScroll(e, '#about')}
-          className="flex items-center gap-2 text-[#aaa9a4] hover:text-[#f1eee8] transition-colors"
+          className="min-h-[44px] min-w-[44px] inline-flex items-center gap-2 text-[#c2bfb8] hover:text-[#f1eee8] transition-colors"
           aria-label="Scroll to about section"
         >
           <span className="hidden sm:inline">SCROLL TO EXPLORE</span>

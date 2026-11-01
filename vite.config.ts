@@ -6,4 +6,21 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   base: '/portfolio/',
   plugins: [react(), tailwindcss()],
+  build: {
+    target: 'esnext',
+    cssCodeSplit: true,
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks(id: string) {
+          if (id.includes('node_modules/framer-motion')) {
+            return 'vendor-framer';
+          }
+          if (id.includes('node_modules/lucide-react')) {
+            return 'vendor-icons';
+          }
+        },
+      },
+    },
+  },
 });

@@ -78,7 +78,7 @@ export function Navbar({ activeSection }: NavbarProps) {
             <a
               href="#top"
               onClick={(e) => handleNavClick(e, '#top')}
-              className="group flex items-center gap-2.5 text-inherit no-underline focus:outline-none"
+              className="group min-h-[44px] flex items-center gap-2.5 text-inherit no-underline focus:outline-none"
               aria-label={`${siteConfig.name} - Home`}
             >
               <span className="font-mono text-xs font-semibold tracking-wider px-2 py-1 rounded bg-[#161616] border border-white/10 text-[#ff8c59] group-hover:border-[#ff8c59]/60 transition-colors">
@@ -90,7 +90,7 @@ export function Navbar({ activeSection }: NavbarProps) {
             </a>
 
             {/* Live Indicator (Sarthak style) */}
-            <div className="hidden lg:flex items-center gap-2 pl-4 border-l border-white/10 text-[11px] font-mono text-[#aaa9a4]">
+            <div className="hidden lg:flex items-center gap-2 pl-4 border-l border-white/10 text-[11px] font-mono text-[#c2bfb8]">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -110,10 +110,10 @@ export function Navbar({ activeSection }: NavbarProps) {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`px-3 py-1.5 text-xs font-mono tracking-wide rounded-md transition-all duration-200 ${
+                  className={`min-h-[40px] inline-flex items-center px-3 py-1.5 text-xs font-mono tracking-wide rounded-md transition-all duration-200 ${
                     isActive
                       ? 'text-[#ff8c59] bg-[#161616] border border-[#ff8c59]/30'
-                      : 'text-[#aaa9a4] hover:text-[#f1eee8] hover:bg-white/[0.04]'
+                      : 'text-[#c2bfb8] hover:text-[#f1eee8] hover:bg-white/[0.04]'
                   }`}
                 >
                   <span className="opacity-40 mr-1.5">{item.index}</span>
@@ -128,18 +128,18 @@ export function Navbar({ activeSection }: NavbarProps) {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/15 bg-[#121212] hover:bg-[#1a1a1a] hover:border-[#ff8c59]/50 text-xs font-mono text-[#f1eee8] hover:text-white transition-all duration-200 group shadow-sm"
+              className="min-h-[44px] inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/15 bg-[#121212] hover:bg-[#1a1a1a] hover:border-[#ff8c59]/50 text-xs font-mono text-[#f1eee8] hover:text-white transition-all duration-200 group shadow-sm"
             >
               <span>Let's Connect</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#ff8c59] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>
 
-          {/* Mobile Menu Hamburger */}
+          {/* Mobile Menu Hamburger with Accessible 48x48 Target */}
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg bg-[#141414] border border-white/10 text-[#f1eee8] hover:text-white focus:outline-none"
+              className="min-w-[48px] min-h-[48px] flex items-center justify-center p-2.5 rounded-lg bg-[#141414] border border-white/10 text-[#f1eee8] hover:text-white focus:outline-none cursor-pointer"
               aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isMobileMenuOpen}
             >
@@ -160,7 +160,7 @@ export function Navbar({ activeSection }: NavbarProps) {
             className="fixed inset-0 z-40 bg-[#030303]/98 backdrop-blur-2xl pt-28 px-8 pb-12 flex flex-col justify-between md:hidden"
           >
             <div className="flex flex-col space-y-4">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-[#8c8c8c]">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[#b0ada6]">
                 INDEX / DIRECTORY
               </span>
               {navigation.map((item) => (
@@ -168,23 +168,23 @@ export function Navbar({ activeSection }: NavbarProps) {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="flex items-center justify-between py-3 border-b border-white/10 text-xl font-display text-[#f1eee8] hover:text-[#ff8c59] transition-colors"
+                  className="min-h-[48px] flex items-center justify-between py-3 border-b border-white/10 text-xl font-display text-[#f1eee8] hover:text-[#ff8c59] transition-colors"
                 >
                   <span>{item.label}</span>
-                  <span className="font-mono text-xs text-[#8c8c8c]">{item.index}</span>
+                  <span className="font-mono text-xs text-[#b0ada6]">{item.index}</span>
                 </a>
               ))}
             </div>
 
             <div className="pt-8 border-t border-white/10 flex flex-col gap-4">
-              <div className="flex items-center gap-2 text-xs font-mono text-[#aaa9a4]">
+              <div className="flex items-center gap-2 text-xs font-mono text-[#c2bfb8]">
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
                 <span>{siteConfig.availability}</span>
               </div>
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, '#contact')}
-                className="w-full py-3.5 text-center rounded-xl bg-[#ff8c59] text-[#030303] font-semibold text-sm tracking-wide"
+                className="w-full min-h-[48px] py-3.5 flex items-center justify-center rounded-xl bg-[#ff8c59] text-[#030303] font-semibold text-sm tracking-wide"
               >
                 Let's Connect
               </a>

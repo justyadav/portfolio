@@ -22,7 +22,7 @@ export function Impact() {
           <h2 className="font-display italic text-3xl sm:text-5xl lg:text-6xl text-[#f1eee8] leading-[1.15] max-w-3xl mb-6">
             {impact.displayHeadline}
           </h2>
-          <p className="text-base sm:text-lg text-[#aaa9a4] max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg text-[#c2bfb8] max-w-2xl leading-relaxed">
             {impact.introText}
           </p>
         </motion.div>
@@ -44,7 +44,7 @@ export function Impact() {
               <div className="font-mono text-xs uppercase tracking-wider text-[#ff8c59] font-medium mb-3">
                 {stat.metric}
               </div>
-              <p className="text-xs sm:text-sm text-[#aaa9a4] leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#c2bfb8] leading-relaxed">
                 {stat.note}
               </p>
             </motion.div>

@@ -22,7 +22,7 @@ export function Expertise() {
           <h2 className="font-display italic text-3xl sm:text-5xl lg:text-6xl text-[#f1eee8] leading-[1.15] max-w-3xl">
             {expertise.displayHeadline}
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-[#aaa9a4] max-w-xl">
+          <p className="mt-4 text-sm sm:text-base text-[#c2bfb8] max-w-xl">
             Disciplined software engineering paired with hands-on infrastructure operations. Built for performance, uptime, and maintainability.
           </p>
         </motion.div>
@@ -45,7 +45,7 @@ export function Expertise() {
                 <h3 className="font-sans font-semibold text-lg sm:text-xl text-[#f1eee8] mb-3">
                   {tier.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#aaa9a4] leading-relaxed mb-6 font-normal">
+                <p className="text-xs sm:text-sm text-[#c2bfb8] leading-relaxed mb-6 font-normal">
                   {tier.context}
                 </p>
               </div>
@@ -67,7 +67,7 @@ export function Expertise() {
 
         {/* 3-Step Execution Philosophy (Sarthak style: 01, 02, 03) */}
         <div className="pt-12 border-t border-white/[0.08]">
-          <span className="block font-mono text-xs uppercase tracking-widest text-[#8c8c8c] mb-8">
+          <span className="block font-mono text-xs uppercase tracking-widest text-[#b0ada6] mb-8">
             THE EXECUTION PHILOSOPHY
           </span>
 
@@ -89,7 +89,7 @@ export function Expertise() {
                     {step.title}
                   </h4>
                 </div>
-                <p className="text-xs sm:text-sm text-[#aaa9a4] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#c2bfb8] leading-relaxed">
                   {step.description}
                 </p>
               </motion.div>

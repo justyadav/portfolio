@@ -1,15 +1,17 @@
-import { useMemo } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import { useActiveSection } from './hooks/useActiveSection';
 import { Navbar } from './components/sections/Navbar';
 import { Hero } from './components/sections/Hero';
 import { ProofStrip } from './components/sections/ProofStrip';
-import { About } from './components/sections/About';
-import { Projects } from './components/sections/Projects';
-import { Expertise } from './components/sections/Expertise';
-import { Impact } from './components/sections/Impact';
-import { Journey } from './components/sections/Journey';
-import { Contact } from './components/sections/Contact';
-import { Footer } from './components/sections/Footer';
+
+// Code-split below-the-fold sections to minimize initial main-thread JS execution
+const About = lazy(() => import('./components/sections/About'));
+const Projects = lazy(() => import('./components/sections/Projects'));
+const Expertise = lazy(() => import('./components/sections/Expertise'));
+const Impact = lazy(() => import('./components/sections/Impact'));
+const Journey = lazy(() => import('./components/sections/Journey'));
+const Contact = lazy(() => import('./components/sections/Contact'));
+const Footer = lazy(() => import('./components/sections/Footer'));
 
 function App() {
   const sectionIds = useMemo(
@@ -24,14 +26,18 @@ function App() {
       <main className="flex-1">
         <Hero />
         <ProofStrip />
-        <About />
-        <Projects />
-        <Expertise />
-        <Impact />
-        <Journey />
-        <Contact />
+        <Suspense fallback={<div className="min-h-[200px] bg-[#030303]" />}>
+          <About />
+          <Projects />
+          <Expertise />
+          <Impact />
+          <Journey />
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

@@ -29,7 +29,7 @@ export const hero = {
   displayHeadline: 'A HUMAN PERSPECTIVE ON TECHNOLOGY.',
   leadText:
     'I turn ideas into digital products — from scalable hosting infrastructure and automation to web applications, Discord ecosystems, and emerging mobile experiences.',
-  portrait: '/images/portrait.png',
+  portrait: '/images/portrait.webp',
   ctaPrimary: { label: 'Explore Selected Work', href: '#work' },
   ctaSecondary: { label: "Let's Connect", href: '#contact' },
   availability: 'Available for select projects',

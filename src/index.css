@@ -10,7 +10,7 @@
   --surface-card: #121212;
   --surface-card-hover: #181818;
   --ink: #f1eee8;
-  --muted: #aaa9a4;
+  --muted: #c2bfb8;
   --accent: #ff8c59;
   --accent-hover: #ff7536;
   --line: rgba(255, 255, 255, 0.08);
@@ -28,7 +28,7 @@
   --color-surface-card: #121212;
   --color-surface-hover: #181818;
   --color-ink: #f1eee8;
-  --color-muted: #aaa9a4;
+  --color-muted: #c2bfb8;
   --color-accent: #ff8c59;
   --color-line: rgba(255, 255, 255, 0.08);
 
@@ -124,12 +124,12 @@ body {
 }
 
 .chapter-number {
-  color: #c9c9c9;
+  color: #d4d1ca;
   font-weight: 500;
 }
 
 .chapter-subtitle {
-  color: #8c8c8c;
+  color: #b0ada6;
   font-weight: 400;
 }
 

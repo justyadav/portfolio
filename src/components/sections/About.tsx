@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { about } from '../../data/portfolio';
 import { getAssetUrl } from '../../utils/assets';
-import defaultPortrait from '../../assets/portrait.png';
+import defaultPortrait from '../../assets/portrait.webp';
 
 export function About() {
   return (
@@ -36,22 +36,26 @@ export function About() {
           >
             <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0b0b0b] group shadow-2xl">
               <img
-                src={getAssetUrl('/images/portrait.png')}
+                src={getAssetUrl('/images/portrait.webp')}
                 onError={(e) => {
                   if (e.currentTarget.src !== defaultPortrait) {
                     e.currentTarget.src = defaultPortrait;
                   }
                 }}
                 alt="Manish Yadav"
+                width={480}
+                height={600}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-cover object-center aspect-[4/5] filter contrast-105 brightness-95 group-hover:scale-102 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0b] via-transparent to-transparent opacity-80" />
-              <div className="absolute bottom-5 left-5 right-5 font-mono text-[11px] text-[#aaa9a4] tracking-wider uppercase">
+              <div className="absolute bottom-5 left-5 right-5 font-mono text-[11px] text-[#c2bfb8] tracking-wider uppercase">
                 {about.identityNotes}
               </div>
             </div>
 
-            <div className="flex items-center justify-between text-xs font-mono text-[#8c8c8c] px-1">
+            <div className="flex items-center justify-between text-xs font-mono text-[#b0ada6] px-1">
               <span>FOUNDER · DEVELOPER</span>
               <span className="text-[#ff8c59]">ARIXBYTE LTD</span>
             </div>
@@ -66,7 +70,7 @@ export function About() {
             className="lg:col-span-7 flex flex-col justify-between"
           >
             {/* Story Paragraphs */}
-            <div className="space-y-6 text-base sm:text-lg text-[#aaa9a4] leading-[1.8] font-normal mb-10 sm:mb-12">
+            <div className="space-y-6 text-base sm:text-lg text-[#c2bfb8] leading-[1.8] font-normal mb-10 sm:mb-12">
               {about.bio.map((paragraph, idx) => (
                 <p key={idx}>{paragraph}</p>
               ))}
@@ -81,7 +85,7 @@ export function About() {
 
             {/* Core Disciplines List */}
             <div>
-              <span className="block font-mono text-xs uppercase tracking-widest text-[#8c8c8c] mb-4">
+              <span className="block font-mono text-xs uppercase tracking-widest text-[#b0ada6] mb-4">
                 CORE DISCIPLINES & FOCUS
               </span>
               <div className="flex flex-wrap gap-2.5">

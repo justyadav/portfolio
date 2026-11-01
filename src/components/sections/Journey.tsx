@@ -54,7 +54,7 @@ export function Journey() {
               </h3>
 
               {/* Description */}
-              <p className="text-sm sm:text-base text-[#aaa9a4] max-w-2xl leading-relaxed">
+              <p className="text-sm sm:text-base text-[#c2bfb8] max-w-2xl leading-relaxed">
                 {milestone.description}
               </p>
             </motion.div>
