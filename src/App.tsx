@@ -6,32 +6,32 @@ import { ProofStrip } from './components/sections/ProofStrip';
 
 // Code-split below-the-fold sections to minimize initial main-thread JS execution
 const About = lazy(() => import('./components/sections/About'));
-const Projects = lazy(() => import('./components/sections/Projects'));
-const Expertise = lazy(() => import('./components/sections/Expertise'));
-const Impact = lazy(() => import('./components/sections/Impact'));
-const Journey = lazy(() => import('./components/sections/Journey'));
-const Contact = lazy(() => import('./components/sections/Contact'));
-const Footer = lazy(() => import('./components/sections/Footer'));
+const TechStack = lazy(() => import('./components/sections/TechStack').then(m => ({ default: m.TechStack })));
+const Projects = lazy(() => import('./components/sections/Projects').then(m => ({ default: m.Projects })));
+const Journey = lazy(() => import('./components/sections/Journey').then(m => ({ default: m.Journey })));
+const Reviews = lazy(() => import('./components/sections/Reviews').then(m => ({ default: m.Reviews })));
+const Contact = lazy(() => import('./components/sections/Contact').then(m => ({ default: m.Contact })));
+const Footer = lazy(() => import('./components/sections/Footer').then(m => ({ default: m.Footer })));
 
 function App() {
   const sectionIds = useMemo(
-    () => ['about', 'work', 'expertise', 'impact', 'journey', 'contact'],
+    () => ['about', 'stack', 'projects', 'journey', 'reviews', 'contact'],
     []
   );
   const activeSection = useActiveSection(sectionIds);
 
   return (
-    <div className="min-h-screen bg-[#030303] text-[#f1eee8] flex flex-col font-sans selection:bg-[#ff8c59] selection:text-[#030303]">
+    <div className="min-h-screen bg-[#09090b] text-[#f4f4f5] flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
       <Navbar activeSection={activeSection} />
       <main className="flex-1">
         <Hero />
         <ProofStrip />
-        <Suspense fallback={<div className="min-h-[200px] bg-[#030303]" />}>
+        <Suspense fallback={<div className="min-h-[200px] bg-[#09090b]" />}>
           <About />
+          <TechStack />
           <Projects />
-          <Expertise />
-          <Impact />
           <Journey />
+          <Reviews />
           <Contact />
         </Suspense>
       </main>

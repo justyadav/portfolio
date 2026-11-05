@@ -1,328 +1,310 @@
 // ============================================================
-// PORTFOLIO DATA — Sarthak Sharma-inspired Luxury Editorial Structure
+// PORTFOLIO DATA — Modern Dark Glassmorphism Developer System
+// Manish Yadav (PC_GAMER_28)
 // ============================================================
 
 export const siteConfig = {
   name: 'Manish Yadav',
-  brandSymbol: 'MY.',
-  title: 'Product Builder & Tech Entrepreneur',
-  role: 'Developer · Builder · Tech Entrepreneur',
+  handle: 'PC_GAMER_28',
+  brandLogo: 'PC_GAMER_28',
+  brandSymbol: 'MY',
+  title: 'Full-Stack Developer & Systems Architect | CTO at ArixByte',
+  role: 'Full-Stack Developer & Systems Architect',
+  company: 'ArixByte',
+  companyRole: 'CTO',
   siteUrl: 'https://justyadav.github.io/portfolio/',
   ogImage: '/images/og-image.jpg',
   description:
-    'Manish Yadav — Product builder, developer, and tech entrepreneur crafting hosting infrastructure, Discord bot ecosystems, and scalable web experiences.',
-  availability: 'Available for select projects',
+    'Specializing in high-performance cloud infrastructure, high-concurrency Discord automation, and modern web applications. Turning complex backend systems into seamless, production-ready experiences.',
+  availability: 'Available for hire',
 };
 
 export const navigation = [
-  { label: 'About', href: '#about', index: '01' },
-  { label: 'Work', href: '#work', index: '02' },
-  { label: 'Expertise', href: '#expertise', index: '03' },
-  { label: 'Impact', href: '#impact', index: '04' },
-  { label: 'Journey', href: '#journey', index: '05' },
-  { label: 'Contact', href: '#contact', index: '06' },
+  { label: 'About', href: '#about', id: 'about' },
+  { label: 'Stack', href: '#stack', id: 'stack' },
+  { label: 'Projects', href: '#projects', id: 'projects' },
+  { label: 'Journey', href: '#journey', id: 'journey' },
+  { label: 'Reviews', href: '#reviews', id: 'reviews' },
+  { label: 'Contact', href: '#contact', id: 'contact' },
 ];
 
 export const hero = {
-  topline: 'Engineer · Builder · Entrepreneur',
-  kicker: 'Based in India · Building at scale',
-  displayHeadline: 'A human perspective on technology.',
-  leadText:
-    'I turn ideas into digital products — from scalable hosting infrastructure and automation to web applications, Discord ecosystems, and emerging mobile experiences.',
+  statusBadge: 'Available for hire',
+  topline: 'Full-Stack Developer & Systems Architect',
+  subtitle: 'CTO at ArixByte',
+  name: 'Manish Yadav',
+  handle: 'PC_GAMER_28',
+  bio: 'Specializing in high-performance cloud infrastructure, high-concurrency Discord automation, and modern web applications. Turning complex backend systems into seamless, production-ready experiences.',
   portrait: '/images/portrait.webp',
-  ctaPrimary: { label: 'Explore Selected Work', href: '#work' },
-  ctaSecondary: { label: "Let's Connect", href: '#contact' },
-  availability: 'Available for select projects',
-  coordinates: '28.6139° N, 77.2090° E',
+  ctaPrimary: { label: 'Hire Me', href: '#contact' },
+  ctaSecondary: { label: 'View Projects', href: '#projects' },
+  socials: {
+    github: 'https://github.com/justyadav',
+    discordHandle: 'codebreakerx06',
+    discordServer: 'https://discord.gg/62pjaFxEW6',
+    linkedin: 'https://linkedin.com',
+    email: 'manishyadav.business@gmail.com',
+  },
 };
 
-export const proofStrip = [
+export const statsStrip = [
   {
-    metric: '5+',
-    suffix: 'Years',
-    label: 'Building & shipping digital products',
+    metric: '2+',
+    label: 'Years Experience',
+    description: 'Active Engineering Experience',
   },
   {
-    metric: '100+',
-    suffix: 'Nodes',
-    label: 'Servers & cloud environments managed',
+    metric: '10+',
+    label: 'Clients Served',
+    description: 'Enterprise & Freelance Clients',
   },
   {
-    metric: '50K+',
-    suffix: 'Users',
-    label: 'Impacted across bots & web applications',
+    metric: '9+',
+    label: 'Nodes Managed',
+    description: 'Active Production Servers & Nodes',
   },
   {
     metric: '99.9%',
-    suffix: 'Uptime',
-    label: 'Infrastructure stability & SLA delivered',
+    label: 'Cloud Uptime',
+    description: 'Infrastructure Stability & SLA',
   },
 ];
 
 export const about = {
-  chapterNumber: '01',
-  chapterLabel: 'THE PERSON BEHIND THE WORK',
-  chapterSubtitle: 'A CONNECTED PERSPECTIVE',
-  displayHeadline: 'Technology is the starting point. Systems are the backbone.',
-  bio: [
-    "I'm Manish Yadav — a developer, infrastructure engineer, and technology builder. I lead technical architecture and product execution at ArixByte, bridging the gap between scalable server backends and intuitive user-facing platforms.",
-    'My work spans high-performance hosting clusters, Linux server orchestration, Docker virtualization, full-stack web applications, and Discord bot ecosystems. I believe engineering is at its best when complex systems disappear into effortless, reliable experiences.',
+  eyebrow: 'ABOUT ME',
+  heading: 'Bridging high-availability infrastructure with fluid frontend design.',
+  bioParagraphs: [
+    "I'm Manish Yadav (known across developer communities as PC_GAMER_28). As CTO and technical lead at ArixByte, I architect distributed cloud hosting nodes, high-throughput Discord bots, and modern web applications that stay responsive under peak traffic.",
+    'My background combines competitive athletics (National Rugby player) with relentless self-taught software engineering. This foundation gave me extreme discipline, calm execution in high-stress production environments, and a relentless commitment to building things that simply do not break.',
   ],
-  pullQuote:
-    '“I don\'t just write code. I engineer the systems, experiences, and infrastructure behind it.”',
-  disciplines: [
-    'Cloud & Hosting Infrastructure',
-    'Discord Automation & Bot Ecosystems',
-    'Full-Stack Web Applications',
-    'Linux System Administration & Docker',
-    'Android Engineering (AEGRA)',
-    'Technical Strategy & Architecture',
+  highlights: [
+    { title: 'Cloud Infrastructure', desc: 'Docker virtualization, Linux server orchestration & Pterodactyl daemon clustering.' },
+    { title: 'High-Concurrency Bots', desc: 'discord.py 2.x ecosystems processing real-time websocket events & tournament automation.' },
+    { title: 'Full-Stack Web', desc: 'Lightning-fast React, Vite & Tailwind CSS web apps with resilient FastAPI/Node backends.' },
+    { title: 'Systems Resilience', desc: 'Automated health checks, Redis caching & proactive DDoS mitigation with Cloudflare.' },
   ],
-  identityNotes: 'Manish Yadav · Developer & Tech Entrepreneur',
 };
 
-export type Project = {
-  id: string;
-  number: string;
-  title: string;
+export interface TechCategory {
   category: string;
-  filterCategory: string;
-  statusBadge: string;
-  description: string;
-  tags: string[];
-  image?: string;
-  liveUrl?: string;
-  repoUrl?: string;
-};
+  badge: string;
+  iconName: string;
+  items: {
+    name: string;
+    level: string;
+    description: string;
+  }[];
+}
 
-export const projects: Project[] = [
+export const techStackData: TechCategory[] = [
+  {
+    category: 'Languages',
+    badge: 'CORE CODE',
+    iconName: 'Code2',
+    items: [
+      { name: 'Python', level: 'Advanced', description: 'Asyncio, discord.py, FastAPI backend engines' },
+      { name: 'TypeScript', level: 'Proficient', description: 'Type-safe full-stack web applications' },
+      { name: 'JavaScript', level: 'Advanced', description: 'ESNext, Node.js runtimes & dynamic UIs' },
+      { name: 'HTML5 / CSS3', level: 'Advanced', description: 'Semantic, accessible & responsive layouts' },
+    ],
+  },
+  {
+    category: 'Frameworks & Runtimes',
+    badge: 'RUNTIMES & APIS',
+    iconName: 'Cpu',
+    items: [
+      { name: 'FastAPI', level: 'Advanced', description: 'High-speed async REST APIs & WebSockets' },
+      { name: 'Node.js', level: 'Proficient', description: 'Microservices & event-driven background tasks' },
+      { name: 'React', level: 'Advanced', description: 'Single-page apps, hooks & custom state flows' },
+      { name: 'Vite', level: 'Advanced', description: 'Sub-second HMR & modern ESM bundler pipelines' },
+      { name: 'discord.py 2.x', level: 'Specialist', description: 'High-concurrency bot sharding & slash commands' },
+    ],
+  },
+  {
+    category: 'Database & Caching',
+    badge: 'DATA SYSTEMS',
+    iconName: 'Database',
+    items: [
+      { name: 'MongoDB', level: 'Advanced', description: 'Aggregations, indexes & high-write bot storage' },
+      { name: 'PostgreSQL', level: 'Proficient', description: 'Relational schemas, ACID transactions & foreign keys' },
+      { name: 'Redis', level: 'Proficient', description: 'In-memory caching, rate-limiting & message queues' },
+    ],
+  },
+  {
+    category: 'DevOps & Cloud',
+    badge: 'INFRASTRUCTURE',
+    iconName: 'Server',
+    items: [
+      { name: 'Docker', level: 'Advanced', description: 'Multi-stage container builds & isolation' },
+      { name: 'Linux', level: 'Advanced', description: 'Kernel tuning, systemd, SSH & Debian/Ubuntu server admin' },
+      { name: 'Cloudflare', level: 'Proficient', description: 'DNS proxying, SSL certificates & DDoS protection' },
+      { name: 'Pterodactyl Panel', level: 'Specialist', description: 'Custom Wings daemon orchestration & game node clusters' },
+      { name: 'AWS India', level: 'Proficient', description: 'EC2 provisioning, VPC security & high-availability routes' },
+    ],
+  },
+];
+
+export interface Project {
+  id: string;
+  title: string;
+  category: 'Bot' | 'Cloud' | 'SaaS' | 'Mobile';
+  problem: string;
+  solution: string;
+  tags: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  featured: boolean;
+  statusText: string;
+}
+
+export const projectsData: Project[] = [
   {
     id: 'arixbyte',
-    number: '01',
-    title: 'ArixByte',
-    category: 'Hosting Infrastructure & Technology Business',
-    filterCategory: 'Infrastructure',
-    statusBadge: 'IN PRODUCTION',
-    description:
-      'A scalable hosting and infrastructure platform engineered for game servers, high-availability web hosting, Discord bot runtimes, and developer databases with Pterodactyl integration.',
-    tags: ['Hosting', 'Pterodactyl', 'Docker', 'Linux', 'Databases'],
-    image: '/images/projects/arixbyte.jpg',
+    title: 'ArixByte Core Hosting Platform',
+    category: 'Cloud',
+    problem:
+      'Developers and gaming communities face expensive cloud hosting with complicated setups and frequent downtime.',
+    solution:
+      'Engineered a scalable hosting infrastructure utilizing Pterodactyl nodes, automated Docker container sandboxing, low-latency node routing, and seamless client billing.',
+    tags: ['Docker', 'Linux', 'Pterodactyl', 'Python', 'Cloudflare', 'MongoDB'],
     liveUrl: 'https://arixbyte.com',
+    githubUrl: 'https://github.com/justyadav',
+    featured: true,
+    statusText: 'In Production',
   },
   {
     id: 'ender-bot',
-    number: '02',
-    title: 'Ender Bot',
-    category: 'Discord Automation & Management Suite',
-    filterCategory: 'Automation',
-    statusBadge: 'PUBLIC BOT',
-    description:
-      'A multipurpose Discord automation ecosystem featuring granular moderation, automated guild configuration, custom logging, and a web companion dashboard.',
-    tags: ['Python', 'Discord API', 'MongoDB', 'FastAPI', 'Automation'],
-    image: '/images/projects/enderbot.jpg',
+    title: 'Ender Bot — Concurrency Ecosystem',
+    category: 'Bot',
+    problem:
+      'Growing Discord servers struggle with spam attacks, raid coordination, disjointed verification, and slow bot response times during peak hours.',
+    solution:
+      'Built a production multipurpose Discord ecosystem using discord.py 2.x with async command dispatching, granular auto-moderation, custom logging, and interactive web dashboard integration.',
+    tags: ['Python', 'discord.py 2.x', 'MongoDB', 'FastAPI', 'Docker'],
+    liveUrl: 'https://discord.gg/62pjaFxEW6',
+    githubUrl: 'https://github.com/justyadav/ender-bot',
+    featured: true,
+    statusText: 'Public Verified Bot',
   },
   {
-    id: 'aegra',
-    number: '03',
-    title: 'AEGRA',
-    category: 'Android Safety Application Concept',
-    filterCategory: 'Mobile',
-    statusBadge: 'NATIVE ANDROID',
-    description:
-      'An emergency personal safety application built for rapid SOS response, featuring multi-tier fail-safe GPS retrieval, automated 112 calling fallback, and time-limited live location sharing.',
+    id: 'cloud-infrastructure',
+    title: 'Pterodactyl Game & Tournament Cloud',
+    category: 'SaaS',
+    problem:
+      'Esports tournaments require instant server spin-ups with strict hardware resource limits and zero packet loss under heavy spectator load.',
+    solution:
+      'Architected dedicated Linux bare-metal node clusters with customized Pterodactyl Wings daemons, automated CPU pinning, automated backups, and tournament orchestration hooks.',
+    tags: ['Linux', 'Docker', 'Bash', 'Pterodactyl', 'Networking', 'Redis'],
+    liveUrl: 'https://arixbyte.com',
+    githubUrl: 'https://github.com/justyadav',
+    featured: true,
+    statusText: '99.9% Uptime Verified',
+  },
+  {
+    id: 'aegra-safety',
+    title: 'AEGRA — Android Personal Safety Engine',
+    category: 'Mobile',
+    problem:
+      'Standard safety apps depend entirely on active cellular internet and cloud servers, failing during network outages or battery-constrained crises.',
+    solution:
+      'Developed a native Android emergency SOS engine with multi-tier fail-safe GPS retrieval, automated SMS broadcast fallback, and local encrypted audit trails.',
     tags: ['Android', 'Kotlin', 'Jetpack Compose', 'Location Services', 'Room DB'],
-    image: '/images/projects/aegra.jpg',
-  },
-  {
-    id: 'web-experiences',
-    number: '04',
-    title: 'Modern Web Experiences',
-    category: 'Full-Stack Web Development',
-    filterCategory: 'Development',
-    statusBadge: 'LIVE APPS',
-    description:
-      'Responsive, high-speed web applications and dashboards engineered to blend performance, accessibility, and luxury editorial design aesthetics.',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Framer Motion'],
-    image: '/images/projects/web.jpg',
-  },
-  {
-    id: 'hosting-automation',
-    number: '05',
-    title: 'Infrastructure & DevOps Automation',
-    category: 'Cloud & System Administration',
-    filterCategory: 'Infrastructure',
-    statusBadge: 'DEVOPS',
-    description:
-      'Automated server deployment workflows, container orchestration recipes, reverse proxy setups, and proactive resource monitoring scripts for cloud nodes.',
-    tags: ['Docker', 'Linux', 'Bash', 'GitHub Actions', 'AWS'],
-    image: '/images/projects/automation.jpg',
+    githubUrl: 'https://github.com/justyadav',
+    featured: false,
+    statusText: 'Native Android',
   },
 ];
 
-export const projectFilters = [
-  'All',
-  'Infrastructure',
-  'Automation',
-  'Development',
-  'Mobile',
+export const journeyMilestones = [
+  {
+    period: 'Present',
+    badge: 'LEADERSHIP & ARCHITECTURE',
+    title: 'CTO & Tech Lead at ArixByte',
+    role: 'Chief Technology Officer',
+    description:
+      'Leading overall platform engineering, client cloud node deployments, high-availability architecture, and automated hosting operations across India and global regions.',
+    points: [
+      'Architected high-density Pterodactyl server nodes running hundreds of game/bot containers.',
+      'Designed end-to-end client provisioning with automated database isolation.',
+      'Maintained 99.9% uptime SLA across all production hosting clusters.',
+    ],
+  },
+  {
+    period: '2026',
+    badge: 'INFRASTRUCTURE & AUTOMATION',
+    title: 'Cloud Server & Bot Systems Architect',
+    role: 'Systems Engineer & Bot Specialist',
+    description:
+      'Focused on high-concurrency bot infrastructure, automated tournament systems, and scalable container virtualization.',
+    points: [
+      'Developed and deployed Ender Bot, powering multi-guild moderation and community management.',
+      'Automated game node deployment pipelines using Docker, Linux bash automation, and reverse proxies.',
+      'Integrated live countdown offers, interactive Discord embeds, and real-time status telemetry.',
+    ],
+  },
+  {
+    period: 'Foundation',
+    badge: 'DISCIPLINE & RESILIENCE',
+    title: 'National Rugby Athlete & Self-Taught Engineer',
+    role: 'Athlete & Continuous Builder',
+    description:
+      'Competed as a national-level rugby player in India while teaching myself programming and computer systems from the ground up.',
+    points: [
+      'Developed deep physical and mental endurance, translating athletic discipline into relentless problem-solving.',
+      'Mastered Linux server management, asynchronous programming, and distributed systems via hands-on builds.',
+      'Built a reputation for staying calm under high-pressure system outages and rapid turnaround requirements.',
+    ],
+  },
 ];
 
-export const expertise = {
-  chapterNumber: '03',
-  chapterLabel: 'HOW I THINK & WORK',
-  chapterSubtitle: 'DEPTH MEETS PERSPECTIVE',
-  displayHeadline: 'How I work. From architecture to impact.',
-  tiers: [
-    {
-      title: 'Languages',
-      context: 'Crafting high-concurrency bot systems, scalable APIs, and interactive full-stack web applications.',
-      skills: [
-        'Python',
-        'JavaScript',
-        'TypeScript',
-        'HTML5 / CSS3 / Tailwind CSS',
-        'FastAPI & Flask',
-        'Discord.py',
-        'Node.js / React',
-      ],
-    },
-    {
-      title: 'Databases',
-      context: 'Designing structured relational and document schemas with optimized queries and resilient storage.',
-      skills: [
-        'MongoDB',
-        'PostgreSQL',
-        'SQLite & JSON',
-        'Redis Caching',
-        'Schema Migrations',
-      ],
-    },
-    {
-      title: 'DevOps, Cloud & Infrastructure',
-      context: 'Provisioning secure environments, automating CI/CD pipelines, and managing game/application nodes.',
-      skills: [
-        'Docker & Container Images',
-        'Pterodactyl Panel & Wings',
-        'Linux & WSL / VirtualBox',
-        'AWS & Render',
-        'Git & GitHub Actions',
-      ],
-    },
-    {
-      title: 'Architecture & Delivery',
-      context: 'Engineering lightning-fast responsive digital experiences with clean architecture and production-grade reliability.',
-      skills: [
-        'Fast Load Times',
-        'Responsive Design',
-        'Direct Contact & Socials',
-        'Clean Architecture',
-        'REST APIs',
-      ],
-    },
-  ],
-  processSteps: [
-    {
-      number: '01',
-      title: 'Understand the Architecture',
-      description: 'Break down system bottlenecks, latency targets, throughput requirements, and developer experience before touching code.',
-    },
-    {
-      number: '02',
-      title: 'Shape the System',
-      description: 'Design modular services, fault-tolerant database schemas, and clean interfaces that scale smoothly without rework.',
-    },
-    {
-      number: '03',
-      title: 'Deploy & Monitor',
-      description: 'Automate build and deployment pipelines, implement health checks, and maintain 99.9% uptime across production environments.',
-    },
-  ],
-};
+export interface Testimonial {
+  quote: string;
+  author: string;
+  role: string;
+  community: string;
+  rating: number;
+  badge: string;
+}
 
-export const impact = {
-  chapterNumber: '04',
-  chapterLabel: 'THE WORK, MULTIPLIED',
-  chapterSubtitle: 'SYSTEMS. STABILITY. POSSIBILITY.',
-  displayHeadline: 'Reach is a number. Reliability is personal.',
-  introText:
-    'Every container deployed, every Discord server automated, and every line of code shipped represents hours saved, communities connected, and critical systems running without downtime.',
-  stats: [
-    {
-      number: '50,000+',
-      metric: 'Users & Community',
-      note: 'Active community members and bot end-users supported across production servers.',
-    },
-    {
-      number: '100+',
-      metric: 'Managed Instances',
-      note: 'Game nodes, web containers, and database instances maintained with continuous monitoring.',
-    },
-    {
-      number: '100%',
-      metric: 'Privacy First',
-      note: 'Zero cloud telemetry architecture implemented on AEGRA for local emergency persistence.',
-    },
-  ],
-};
+export const reviewsData: Testimonial[] = [
+  {
+    quote:
+      'Manish architected our entire tournament bot automation and game servers. During our 1,000+ player championship, the infrastructure handled continuous load without a single hiccup or lag spike. Fast turnaround and bulletproof code.',
+    author: 'Alex R.',
+    role: 'Esports Director & Tournament Lead',
+    community: 'Apex Arena Gaming',
+    rating: 5,
+    badge: 'Tournament Verified',
+  },
+  {
+    quote:
+      'The Pterodactyl node cluster Manish configured for our server hosting business is rock-solid. 99.9% uptime, automated resource balancing, and whenever we have a technical scaling question, his response time is immediate.',
+    author: 'Devraj K.',
+    role: 'Hosting Enterprise Owner',
+    community: 'ArixByte Cloud Client',
+    rating: 5,
+    badge: 'Enterprise Infrastructure',
+  },
+  {
+    quote:
+      'Custom Discord automation was delivered days ahead of our launch deadline. The slash command latency is near zero and the moderation filters caught raids instantly. Truly exceptional systems engineering.',
+    author: 'Jordan M.',
+    role: 'Community Operations Lead',
+    community: 'Creator Guild Network',
+    rating: 5,
+    badge: 'Custom Bot Suite',
+  },
+];
 
-export const journey = {
-  chapterNumber: '05',
-  chapterLabel: 'STILL BECOMING',
-  chapterSubtitle: 'A JOURNEY IN MOTION',
-  displayHeadline: 'Started with code. Kept building deeper.',
-  milestones: [
-    {
-      year: '2021',
-      tag: 'THE SPARK',
-      title: 'First Lines of Code & Discord Automation',
-      description:
-        'Wrote my first Python scripts and built Discord bots to automate community moderation, event management, and interactive commands.',
-    },
-    {
-      year: '2022',
-      tag: 'INFRASTRUCTURE',
-      title: 'Linux Systems & Server Virtualization',
-      description:
-        'Transitioned into dedicated Linux server administration, Docker containerization, and hosting game servers with automated provisioning.',
-    },
-    {
-      year: '2023',
-      tag: 'ENTREPRENEURSHIP',
-      title: 'Co-Founding ArixByte Platform',
-      description:
-        'Launched ArixByte, architecting server nodes, custom Pterodactyl panels, database clusters, and client support workflows for developer hosting.',
-    },
-    {
-      year: '2024',
-      tag: 'MOBILE & WEB',
-      title: 'AEGRA Safety Engine & Modern Web Dashboards',
-      description:
-        'Engineered AEGRA native Android personal safety application with fail-safe location engines, while building high-performance modern web platforms.',
-    },
-    {
-      year: 'Today',
-      tag: 'WHAT COMES NEXT',
-      title: 'Expanding Infrastructure & Building What Matters',
-      description:
-        'Scaling hosting nodes, developing developer tools, and collaborating on high-impact software products with a founder mindset.',
-    },
-  ],
-};
-
-export const contact = {
-  chapterNumber: '06',
-  chapterLabel: 'THE NEXT CHAPTER',
-  chapterSubtitle: 'LET\'S MAKE IT MATTER',
-  displayHeadline: "Open to meaningful conversations & building what's next.",
-  description:
-    "Something great starts with a hello. Whether it's cloud hosting, infrastructure consulting, Discord bot systems, or building a new digital product — I'd love to connect.",
+export const contactData = {
+  heading: "Let's Build Something Exceptional",
+  subheading:
+    'Have a high-concurrency bot to build, a cloud infrastructure cluster to deploy, or a full-stack platform to ship? Reach out directly.',
+  email: 'manishyadav.business@gmail.com',
+  discordHandle: 'codebreakerx06',
+  discordServerUrl: 'https://discord.gg/62pjaFxEW6',
+  githubUrl: 'https://github.com/justyadav',
+  linkedinUrl: 'https://linkedin.com',
   web3formsKey: '104a3afe-fcc0-42e9-a5b5-d930902292e4',
-  email: 'manishyadav.business@gmail.com', // Editable fallback
-  socials: [
-    { label: 'LinkedIn', href: 'https://linkedin.com', id: 'linkedin' },
-    { label: 'GitHub', href: 'https://github.com/justyadav', id: 'github' },
-    { label: 'Discord', href: 'https://discord.gg', id: 'discord' },
-    { label: 'Email', href: 'mailto:manishyadav.business@gmail.com', id: 'email' },
-  ],
-  footerText: `© ${new Date().getFullYear()} MANISH YADAV — CREATED WITH PASSION, ENGINEERING & VISION.`,
+  footerText: `© ${new Date().getFullYear()} Manish Yadav (PC_GAMER_28). Built for performance, uptime, and scale.`,
 };

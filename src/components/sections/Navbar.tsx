@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Terminal } from 'lucide-react';
 import { siteConfig, navigation } from '../../data/portfolio';
 
 export interface NavbarProps {
@@ -14,7 +14,7 @@ export function Navbar({ activeSection }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setIsScrolled(window.scrollY > 30);
 
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
       if (totalScroll > 0) {
@@ -26,7 +26,6 @@ export function Navbar({ activeSection }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent background scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -47,7 +46,7 @@ export function Navbar({ activeSection }: NavbarProps) {
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {
-      const navbarHeight = 72;
+      const navbarHeight = 76;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: elementPosition - navbarHeight,
@@ -68,29 +67,34 @@ export function Navbar({ activeSection }: NavbarProps) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'glass-nav py-3.5 shadow-[0_10px_30px_rgba(0,0,0,0.8)]'
+            ? 'glass-nav py-3 shadow-[0_10px_30px_rgba(0,0,0,0.8)]'
             : 'bg-transparent py-5 border-b border-transparent'
         }`}
       >
         <div className="section-container flex items-center justify-between">
-          {/* Left: Monogram Wordmark + Live Availability Badge */}
+          {/* Left: Brand Logo & Status Indicator */}
           <div className="flex items-center gap-4 sm:gap-6">
             <a
               href="#top"
               onClick={(e) => handleNavClick(e, '#top')}
-              className="group min-h-[44px] flex items-center gap-2.5 text-inherit no-underline focus:outline-none"
-              aria-label={`${siteConfig.name} - Home`}
+              className="group flex items-center gap-2.5 text-inherit no-underline focus:outline-none"
+              aria-label={`${siteConfig.name} (${siteConfig.handle}) - Home`}
             >
-              <span className="font-mono text-xs font-semibold tracking-wider px-2.5 py-1 rounded-full bg-[#161616] border border-white/10 text-[#ff8c59] group-hover:border-[#ff8c59]/60 transition-colors">
-                {siteConfig.brandSymbol}
-              </span>
-              <span className="font-sans font-semibold text-sm sm:text-base tracking-tight text-[#f1eee8] group-hover:text-white transition-colors">
-                {siteConfig.name}
-              </span>
+              <div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:border-cyan-400 transition-colors shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                <Terminal className="w-4 h-4 text-cyan-400" />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-mono font-bold text-sm tracking-tight text-white group-hover:text-cyan-300 transition-colors">
+                  {siteConfig.handle}
+                </span>
+                <span className="text-[10px] text-zinc-400 tracking-wide font-sans hidden sm:block">
+                  {siteConfig.name}
+                </span>
+              </div>
             </a>
 
-            {/* Live Indicator (Sarthak style) */}
-            <div className="hidden lg:flex items-center gap-2 pl-4 border-l border-white/10 text-xs font-mono text-[#c2bfb8]">
+            {/* Glowing Availability Beacon */}
+            <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -102,40 +106,38 @@ export function Navbar({ activeSection }: NavbarProps) {
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-1 lg:gap-2">
             {navigation.map((item) => {
-              const sectionId = item.href.replace('#', '');
-              const isActive = activeSection.toLowerCase() === sectionId.toLowerCase();
+              const isActive = activeSection.toLowerCase() === item.id.toLowerCase();
 
               return (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`min-h-[40px] inline-flex items-center px-3 py-1.5 text-xs font-mono tracking-wide rounded-full transition-all duration-200 ${
+                  className={`px-3.5 py-1.5 text-xs font-medium tracking-wide rounded-full transition-all duration-200 ${
                     isActive
-                      ? 'text-[#ff8c59] bg-[#161616] border border-[#ff8c59]/30'
-                      : 'text-[#c2bfb8] hover:text-[#f1eee8] hover:bg-white/[0.04]'
+                      ? 'text-cyan-300 bg-cyan-500/15 border border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.15)]'
+                      : 'text-zinc-400 hover:text-white hover:bg-white/[0.04]'
                   }`}
                 >
-                  <span className="opacity-40 mr-1.5">{item.index}</span>
                   {item.label}
                 </a>
               );
             })}
           </nav>
 
-          {/* Right Action: Let's Connect Button */}
+          {/* Right Action: Compact "Hire Me" Button */}
           <div className="hidden sm:flex items-center gap-3">
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="btn-secondary !min-h-[40px] !py-2 !px-4 !text-xs !font-mono gap-1.5 group shadow-sm"
+              className="btn-primary !min-h-[38px] !py-1.5 !px-4 !text-xs !font-medium gap-1.5 group"
             >
-              <span>Let's Connect</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#ff8c59] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <span>Hire Me</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-zinc-950 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>
 
-          {/* Mobile Menu Hamburger with Accessible 48x48 Target */}
+          {/* Mobile Menu Hamburger */}
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -143,13 +145,13 @@ export function Navbar({ activeSection }: NavbarProps) {
               aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isMobileMenuOpen}
             >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMobileMenuOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Drawer Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -157,36 +159,41 @@ export function Navbar({ activeSection }: NavbarProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 bg-[#030303]/98 backdrop-blur-2xl pt-28 px-8 pb-12 flex flex-col justify-between md:hidden"
+            className="fixed inset-0 z-40 bg-[#09090b]/98 backdrop-blur-2xl pt-28 px-8 pb-12 flex flex-col justify-between md:hidden"
           >
             <div className="flex flex-col space-y-4">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#b0ada6]">
-                INDEX / DIRECTORY
+              <span className="font-mono text-xs uppercase tracking-widest text-zinc-500">
+                NAVIGATION
               </span>
-              {navigation.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                  className="min-h-[48px] flex items-center justify-between py-3 border-b border-white/10 text-xl font-display text-[#f1eee8] hover:text-[#ff8c59] transition-colors"
-                >
-                  <span>{item.label}</span>
-                  <span className="font-mono text-xs text-[#b0ada6]">{item.index}</span>
-                </a>
-              ))}
+              {navigation.map((item) => {
+                const isActive = activeSection.toLowerCase() === item.id.toLowerCase();
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={`flex items-center justify-between py-3 border-b border-white/[0.06] text-lg font-medium transition-colors ${
+                      isActive ? 'text-cyan-400' : 'text-zinc-300 hover:text-white'
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                    <ArrowUpRight className="w-4 h-4 opacity-50" />
+                  </a>
+                );
+              })}
             </div>
 
-            <div className="pt-8 border-t border-white/10 flex flex-col gap-4">
-              <div className="flex items-center gap-2 text-xs font-mono text-[#c2bfb8]">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <div className="pt-8 border-t border-white/[0.08] flex flex-col gap-4">
+              <div className="flex items-center gap-2 text-xs font-mono text-emerald-400">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span>{siteConfig.availability}</span>
               </div>
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, '#contact')}
-                className="btn-primary w-full"
+                className="btn-primary w-full text-center"
               >
-                Let's Connect
+                Hire Me
               </a>
             </div>
           </motion.div>

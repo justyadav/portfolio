@@ -1,106 +1,87 @@
 import { motion } from 'framer-motion';
 import { about } from '../../data/portfolio';
-import { getAssetUrl } from '../../utils/assets';
-import defaultPortrait from '../../assets/portrait.webp';
+import { Server, Bot, Globe, Shield, Trophy } from 'lucide-react';
+
+const highlightIcons = [Server, Bot, Globe, Shield];
 
 export function About() {
   return (
-    <section id="about" className="py-24 sm:py-36 relative bg-[#030303] overflow-hidden">
-      <div className="section-container">
-        {/* Chapter Header (Sarthak style) */}
-        <div className="chapter-header">
-          <span className="chapter-number">{about.chapterNumber} / {about.chapterLabel}</span>
-          <span className="chapter-subtitle">{about.chapterSubtitle}</span>
+    <section id="about" className="py-24 sm:py-32 relative bg-[#09090b] overflow-hidden">
+      {/* Background Subtle Radial */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="section-container relative z-10">
+        {/* Section Header */}
+        <div className="mb-14 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-xs font-mono text-cyan-300 mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+            <span>{about.eyebrow}</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white max-w-3xl leading-[1.15]">
+            {about.heading}
+          </h2>
         </div>
 
-        {/* Section Display Heading in Instrument Serif */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="font-display italic text-4xl sm:text-6xl text-[#f1eee8] leading-[1.15] max-w-4xl mb-16 sm:mb-24"
-        >
-          {about.displayHeadline}
-        </motion.h2>
-
-        {/* 2-Column Editorial Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Portrait Card & Identity Notes */}
+        {/* 2-Column Story & Highlights Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          {/* Left Column: Narrative paragraphs & Athletic foundation badge */}
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-5 flex flex-col gap-4"
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 space-y-6 text-zinc-300 text-base sm:text-lg leading-relaxed font-normal"
           >
-            <div className="relative rounded-xl overflow-hidden border border-white/10 bg-[#0b0b0b] group shadow-2xl">
-              <img
-                src={getAssetUrl('/images/portrait.webp')}
-                onError={(e) => {
-                  if (e.currentTarget.src !== defaultPortrait) {
-                    e.currentTarget.src = defaultPortrait;
-                  }
-                }}
-                alt="Manish Yadav"
-                width={480}
-                height={600}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-auto object-cover object-center aspect-[4/5] filter contrast-105 brightness-95 group-hover:scale-102 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0b] via-transparent to-transparent opacity-80" />
-              <div className="absolute bottom-5 left-5 right-5 font-mono text-xs text-[#c2bfb8] tracking-wider uppercase">
-                {about.identityNotes}
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between text-xs font-mono text-[#b0ada6] px-1">
-              <span>FOUNDER · DEVELOPER</span>
-              <span className="text-[#ff8c59]">ARIXBYTE LTD</span>
-            </div>
-          </motion.div>
-
-          {/* Right Column: Narrative, Pull Quote & Core Disciplines */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-7 flex flex-col justify-between"
-          >
-            {/* Story Paragraphs */}
-            <div className="space-y-6 text-base sm:text-lg text-[#c2bfb8] leading-[1.8] font-normal mb-10 sm:mb-12">
-              {about.bio.map((paragraph, idx) => (
-                <p key={idx}>{paragraph}</p>
-              ))}
-            </div>
-
-            {/* Editorial Pull Quote in Serif */}
-            <blockquote className="p-6 sm:p-8 rounded-xl bg-[#0b0b0b] border-l-2 border-[#ff8c59] border-y border-r border-white/[0.06] mb-10 sm:mb-12 shadow-lg">
-              <p className="font-display italic text-lg sm:text-2xl text-[#f1eee8] leading-snug">
-                {about.pullQuote}
+            {about.bioParagraphs.map((para, i) => (
+              <p key={i} className="text-zinc-400">
+                {para}
               </p>
-            </blockquote>
+            ))}
 
-            {/* Core Disciplines List */}
-            <div>
-              <span className="block font-mono text-xs uppercase tracking-widest text-[#b0ada6] mb-4">
-                CORE DISCIPLINES & FOCUS
-              </span>
-              <div className="flex flex-wrap gap-2.5">
-                {about.disciplines.map((item) => (
-                  <span
-                    key={item}
-                    className="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-mono text-[#f1eee8] bg-[#141414] border border-white/10 hover:border-[#ff8c59]/50 transition-colors"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#ff8c59] mr-2" />
-                    {item}
-                  </span>
-                ))}
+            {/* Rugby Athlete Discipline Callout */}
+            <div className="p-5 rounded-xl bg-gradient-to-r from-cyan-950/20 via-zinc-900/50 to-emerald-950/20 border border-cyan-500/20 backdrop-blur-md flex items-start gap-4">
+              <div className="w-10 h-10 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0 mt-0.5">
+                <Trophy className="w-5 h-5 text-cyan-400" />
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-white mb-1">
+                  National Rugby Discipline × Systems Mindset
+                </h3>
+                <p className="text-xs text-zinc-400 leading-normal">
+                  High-stakes athletic competition built extreme composure under high-concurrency spikes, system incidents, and mission-critical deployment deadlines.
+                </p>
               </div>
             </div>
           </motion.div>
+
+          {/* Right Column: 4 Core Pillars Grid */}
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {about.highlights.map((item, idx) => {
+              const IconComp = highlightIcons[idx % highlightIcons.length];
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="glass-card p-6 flex flex-col justify-between group"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-center text-zinc-300 group-hover:text-cyan-400 group-hover:border-cyan-500/30 group-hover:bg-cyan-500/10 transition-all mb-4">
+                    <IconComp className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-base font-semibold text-white mb-2 group-hover:text-cyan-300 transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
+                      {item.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

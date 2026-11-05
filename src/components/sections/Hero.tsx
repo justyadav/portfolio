@@ -1,16 +1,19 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Mail, Copy, Check, ShieldCheck, Sparkles } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, DiscordIcon } from '../ui/Icons';
 import { hero, siteConfig } from '../../data/portfolio';
-import { getAssetUrl } from '../../utils/assets';
 import defaultPortrait from '../../assets/portrait.webp';
 
 export function Hero() {
+  const [copiedDiscord, setCopiedDiscord] = useState(false);
+
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {
-      const navbarHeight = 72;
+      const navbarHeight = 76;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: elementPosition - navbarHeight,
@@ -19,117 +22,226 @@ export function Hero() {
     }
   };
 
+  const handleCopyDiscord = () => {
+    navigator.clipboard.writeText(hero.socials.discordHandle);
+    setCopiedDiscord(true);
+    setTimeout(() => setCopiedDiscord(false), 2200);
+  };
+
   return (
     <section
       id="top"
-      aria-label="Introduction"
-      className="relative min-h-[95vh] w-full flex flex-col justify-between pt-32 pb-14 sm:pt-40 sm:pb-20 overflow-hidden bg-[#030303]"
+      aria-label="Hero Overview"
+      className="relative min-h-[92vh] w-full flex items-center pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden bg-[#09090b]"
     >
-      {/* Background Studio Portrait with Seamless Radial & Edge Vignette */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none -z-10 overflow-hidden select-none">
-        <div className="relative w-full max-w-5xl h-full flex items-center justify-center">
-          <img
-            src={hero.portrait ? getAssetUrl(hero.portrait) : defaultPortrait}
-            alt=""
-            aria-hidden="true"
-            width={1024}
-            height={576}
-            fetchPriority="high"
-            decoding="async"
-            className="w-full h-full max-h-[880px] object-cover sm:object-contain object-center opacity-40 sm:opacity-55 filter contrast-105 brightness-90 transition-opacity duration-1000"
-          />
-          {/* Multi-directional vignette dissolving portrait into #030303 */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/40 to-[#030303]/90" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#030303] via-transparent to-[#030303]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#030303_75%)]" />
-        </div>
-      </div>
+      {/* Ambient Radial Glow Overlays */}
+      <div className="ambient-glow-top" aria-hidden="true" />
+      <div className="ambient-glow-emerald right-[-100px] top-[20%]" aria-hidden="true" />
 
-      {/* Main Hero Content */}
-      <div className="section-container w-full flex-1 flex flex-col justify-center relative z-10 py-6 sm:py-10">
-        <div className="max-w-4xl">
-          {/* Topline & Kicker (Sarthak style) */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-wrap items-center gap-3 mb-6 sm:mb-8 font-mono text-xs tracking-[0.15em] text-[#c2bfb8]"
-          >
-            <span className="text-[#ff8c59] font-medium">{hero.topline}</span>
-            <span className="opacity-40">·</span>
-            <span>{hero.kicker}</span>
-          </motion.div>
-
-          {/* Giant Display Headline in Instrument Serif */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="font-display italic text-4xl sm:text-6xl text-[#f1eee8] leading-[1.05] tracking-tight mb-6 sm:mb-8 drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]"
-          >
-            {hero.displayHeadline}
-          </motion.h1>
-
-          {/* Name & Positioning */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="space-y-4 mb-10 sm:mb-12"
-          >
-            <h2 className="font-sans font-bold text-2xl text-white tracking-tight">
-              {siteConfig.name}
-            </h2>
-            <p className="text-base sm:text-lg text-[#c2bfb8] font-normal leading-[1.75] max-w-2xl">
-              {hero.leadText}
-            </p>
-          </motion.div>
-
-          {/* Dual Action CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.45 }}
-            className="flex flex-wrap items-center gap-4 sm:gap-5"
-          >
-            <a
-              href={hero.ctaPrimary.href}
-              onClick={(e) => handleSmoothScroll(e, hero.ctaPrimary.href)}
-              className="btn-primary gap-2 group"
+      <div className="section-container relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Column: Bio, Titles, CTAs, Socials (7 cols) */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            {/* Status Pill Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-xs font-mono text-cyan-300 w-fit mb-6 shadow-[0_0_15px_rgba(6,182,212,0.15)]"
             >
-              <span>{hero.ctaPrimary.label}</span>
-              <ArrowUpRight className="w-4 h-4 text-[#030303] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              </span>
+              <span className="font-medium">{hero.statusBadge}</span>
+              <span className="text-zinc-600">|</span>
+              <span className="text-zinc-400">{hero.subtitle}</span>
+            </motion.div>
 
-            <a
-              href={hero.ctaSecondary.href}
-              onClick={(e) => handleSmoothScroll(e, hero.ctaSecondary.href)}
-              className="btn-secondary gap-2"
+            {/* Name & Handle */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mb-4"
             >
-              <span>{hero.ctaSecondary.label}</span>
-            </a>
+              <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+                {hero.name}
+                <span className="block text-2xl sm:text-3xl font-mono font-medium text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-emerald-400 mt-2">
+                  ({hero.handle})
+                </span>
+              </h1>
+            </motion.div>
+
+            {/* Title / Role */}
+            <motion.h2
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg sm:text-xl font-medium text-zinc-300 tracking-tight mb-6"
+            >
+              {siteConfig.title}
+            </motion.h2>
+
+            {/* Bio Paragraph */}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-base sm:text-lg text-zinc-400 font-normal leading-relaxed max-w-2xl mb-8"
+            >
+              {hero.bio}
+            </motion.p>
+
+            {/* Primary & Secondary CTA Group */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-wrap items-center gap-4 mb-10"
+            >
+              <a
+                href={hero.ctaPrimary.href}
+                onClick={(e) => handleSmoothScroll(e, hero.ctaPrimary.href)}
+                className="btn-primary"
+              >
+                <span>{hero.ctaPrimary.label}</span>
+                <ArrowUpRight className="w-4 h-4 text-zinc-950" />
+              </a>
+
+              <a
+                href={hero.ctaSecondary.href}
+                onClick={(e) => handleSmoothScroll(e, hero.ctaSecondary.href)}
+                className="btn-secondary"
+              >
+                <span>{hero.ctaSecondary.label}</span>
+              </a>
+            </motion.div>
+
+            {/* Quick Social Links Bar with Interactive Discord Copy */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-wrap items-center gap-3 pt-6 border-t border-white/[0.08]"
+            >
+              <span className="text-xs font-mono uppercase tracking-wider text-zinc-500 mr-2">
+                DIRECT CONNECT:
+              </span>
+
+              {/* GitHub */}
+              <a
+                href={hero.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-icon !h-9 !w-9 !rounded-lg"
+                aria-label="GitHub Profile"
+                title="GitHub"
+              >
+                <GithubIcon className="w-4 h-4" />
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href={hero.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-icon !h-9 !w-9 !rounded-lg"
+                aria-label="LinkedIn Profile"
+                title="LinkedIn"
+              >
+                <LinkedinIcon className="w-4 h-4" />
+              </a>
+
+              {/* Email */}
+              <a
+                href={`mailto:${hero.socials.email}`}
+                className="btn-icon !h-9 !w-9 !rounded-lg"
+                aria-label="Send Email"
+                title="Email"
+              >
+                <Mail className="w-4 h-4" />
+              </a>
+
+              {/* Discord Copy Button Pill */}
+              <button
+                onClick={handleCopyDiscord}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.08] hover:border-cyan-500/40 hover:bg-cyan-500/10 text-xs font-mono text-zinc-300 transition-all cursor-pointer"
+                title="Click to copy Discord tag"
+              >
+                <DiscordIcon className="w-3.5 h-3.5 text-cyan-400" />
+                <span>{hero.socials.discordHandle}</span>
+                {copiedDiscord ? (
+                  <Check className="w-3.5 h-3.5 text-emerald-400 ml-1" />
+                ) : (
+                  <Copy className="w-3.5 h-3.5 text-zinc-500 hover:text-cyan-400 ml-1" />
+                )}
+              </button>
+
+              {/* Discord Server Link */}
+              <a
+                href={hero.socials.discordServer}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-mono text-cyan-400/80 hover:text-cyan-300 underline underline-offset-4 decoration-cyan-500/30 ml-1"
+              >
+                Join Community →
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Stylized Asymmetric Avatar Showcase (5 cols) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:col-span-5 flex justify-center lg:justify-end"
+          >
+            <div className="relative w-full max-w-md">
+              {/* Outer Cyan Glow Backlight */}
+              <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-tr from-cyan-500/30 via-transparent to-emerald-500/20 blur-xl opacity-75" />
+
+              {/* Main Avatar Card Frame */}
+              <div className="relative rounded-2xl p-2.5 sm:p-3 bg-gradient-to-b from-white/10 via-white/[0.03] to-white/[0.05] border border-white/15 backdrop-blur-xl shadow-2xl overflow-hidden">
+                <div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-zinc-900">
+                  <img
+                    src={defaultPortrait}
+                    alt={hero.name}
+                    width={500}
+                    height={625}
+                    fetchPriority="high"
+                    className="w-full h-full object-cover object-center filter contrast-105 brightness-95"
+                  />
+                  {/* Subtle inner dark gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-transparent to-transparent opacity-80" />
+
+                  {/* Floating Verified Badge */}
+                  <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-[#09090b]/85 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                        <ShieldCheck className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-semibold text-white">99.9% Cloud Uptime</div>
+                        <div className="text-[10px] text-zinc-400 font-mono">Infrastructure SLA Delivered</div>
+                      </div>
+                    </div>
+                    <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
+                  </div>
+                </div>
+
+                {/* Card Header Meta */}
+                <div className="pt-3 px-2 pb-1 flex items-center justify-between text-[11px] font-mono text-zinc-400">
+                  <span className="flex items-center gap-1.5 text-cyan-400">
+                    <Sparkles className="w-3 h-3" />
+                    <span>SYSTEMS ARCHITECT</span>
+                  </span>
+                  <span>DELHI · INDIA</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
-      </div>
-
-      {/* Hero Bottom Meta Strip */}
-      <div className="section-container w-full relative z-10 flex items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#b0ada6]">
-        {/* Left: Location Coordinates */}
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#ff8c59]" />
-          <span>{hero.coordinates}</span>
-        </div>
-
-        {/* Right: Scroll Indicator */}
-        <a
-          href="#about"
-          onClick={(e) => handleSmoothScroll(e, '#about')}
-          className="min-h-[44px] min-w-[44px] inline-flex items-center gap-2 text-[#c2bfb8] hover:text-[#f1eee8] transition-colors"
-          aria-label="Scroll to about section"
-        >
-          <span className="hidden sm:inline">SCROLL TO EXPLORE</span>
-          <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
-        </a>
       </div>
     </section>
   );
